@@ -12,8 +12,8 @@ npm create vite@latest
 运行后，Vite 将在终端中提供一些可供选择的配置，这些配置按步骤分别为：
 
 1. 项目名称（默认 vite-project）
-2. 选择一个框架，如 Vue、React、Svelte 等，选择 Vue 即可
-3. 选择一个开发方式，如 TypeScript、JavaScript、Nuxt 等，按自己的需求进行选择
+2. 选择一个框架，如 Vue、React、Svelte 等，根据自己需求进行选择
+3. 选择一个开发方式，如 TypeScript、JavaScript、Nuxt 等，根据自己需求进行选择
 
 然后 Vite 会创建项目文件结构，创建完成后，使用以下命令启动开发服务器
 
