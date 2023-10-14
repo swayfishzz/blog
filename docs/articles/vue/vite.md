@@ -100,6 +100,9 @@ export default {
       '/api2': {
         target: 'https://www.test.com', // 要进行代理的域名
         changeOrigin: true, // 修改请求头中的 host 和 origin
+        pathRewrite: {
+          '^/api2': '', // 将路径中的【/api2】重写为 ''
+        },
       },
     },
   },

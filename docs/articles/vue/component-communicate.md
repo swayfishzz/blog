@@ -291,4 +291,4 @@ onUnMounted(() => {
 
 ### pinia
 
-`pinia` 是一个基于 Vue 3 的状态管理库，用于管理应用程序的全局状态。将会在下一篇中详细介绍
+`pinia` 是一个基于 Vue 3 的状态管理库，用于管理应用程序的全局状态。将会在[状态管理 Pinia](/articles/vue/pinia)中详细介绍

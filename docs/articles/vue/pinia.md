@@ -67,9 +67,9 @@ export const useCountStore = defineStore('counter', {
 
 在这个函数中：
 
-- `ref()` 就是 `state` 属性
-- `computed()` 就是 `getters`
-- `function()` 就是 `actions`
+- 使用 `ref()` 定义的数据就是 `state` 属性
+- 使用 `computed()` 定义的数据就是 `getters`
+- 使用 `function()` 定义的数据就是 `actions`
 
 ```js
 import { defineStore } from 'pinia'
@@ -121,7 +121,7 @@ const pinia = createPinia()
 pinia.use(piniaPersisted)
 ```
 
-**使用：**在定义仓库时，加入插件指定的配置项
+**使用**：在定义仓库时，加入插件指定的配置项
 
 ```js
 import { defineStore } from 'pinia'

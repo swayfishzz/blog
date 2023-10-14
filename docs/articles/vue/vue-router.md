@@ -279,7 +279,7 @@ const goAboutView = () => {
 </script>
 ```
 
-**接受 query 参数：**在 `about` 页面中，使用以下方式访问 query 参数
+**接受 query 参数**：在 `about` 页面中，使用以下方式访问 query 参数
 
 ```vue
 <template>
@@ -316,7 +316,7 @@ const routes = [
 ]
 ```
 
-**守卫内访问：**在路由守卫内可以访问它们，以便满足鉴权的场景：
+**守卫内访问**：在路由守卫内可以访问它们，以便满足鉴权的场景：
 
 ```js
 import { isLogin } from './auth.js' // 判断是否登录

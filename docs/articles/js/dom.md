@@ -106,7 +106,7 @@ const id = foo.dataset.id // 获取自定义的 id 属性
 foo.dataset.color = 'red' // 修改自定义的 color 属性
 ```
 
-使用 css 使用自定义属性：
+在 css 中使用自定义属性：
 
 ```css
 .foo {
