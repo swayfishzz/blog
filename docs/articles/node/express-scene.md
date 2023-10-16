@@ -120,9 +120,9 @@ app.get('/download/:filename', (req, res) => {
 
 ## 图片水印
 
-要在 Express 中为图片添加水印，您可以使用一些 Node.js 的图像处理库，如 `gm`（GraphicsMagick）或 `sharp`。以下是一个使用 `sharp` 库的示例，演示如何在 Express 应用程序中为图片添加水印：
+要在 Express 中为图片添加水印，你可以使用一些 Node.js 的图像处理库，如 `gm`（GraphicsMagick）或 `sharp`。
 
-首先，确保您的项目中已经安装了 `sharp` 模块。如果没有安装，可以使用以下命令进行安装
+使用 npm 安装 `sharp` 模块
 
 ```bash
 npm i sharp
@@ -136,7 +136,7 @@ const sharp = require('sharp')
 const app = express()
 
 // 中间件，用于处理图片并添加水印
-app.get('/preview', async (req, res) => {
+app.get('/getimage', async (req, res) => {
   try {
     const imagePath = '/path/to/your/image.jpg' // 要处理的图片路径
     const watermarkPath = '/path/to/your/watermark.png' // 水印图片路径
@@ -204,9 +204,9 @@ fetch('/getimage')
 
 图片防盗链（Image Hotlinking Protection）是一种网站安全措施，用于阻止其他网站或域名上的内容（通常是图片）在未经授权的情况下直接链接到自己的网站上。可能会导致以下问题：
 
-1. 带宽消耗：其他网站消耗您的服务器带宽，而您需要为这些带宽费用付款。
-2. 资源盗用：其他网站可能未经授权使用您的图片，这可能侵犯您的知识产权。
-3. 数据传输成本：如果您的网站受到大量盗链攻击，可能会导致不必要的数据传输成本
+1. 带宽消耗：其它网站消耗你的服务器带宽，而你需要为这些带宽费用付款。
+2. 资源盗用：其它网站可能未经授权使用你的图片，这可能侵犯你的知识产权。
+3. 数据传输成本：如果你的网站受到大量盗链攻击，可能会导致不必要的数据传输成本
 
 为了防止图片盗链，网站管理员可以实施图片防盗链保护措施，例如，检查请求的 Referer 头部：服务器可以检查请求头中的 Referer 字段，该字段表示请求的来源。如果请求的 Referer 不在白名单内，服务器可以拒绝提供图片或采取其他适当的措施。
 
@@ -221,8 +221,8 @@ const port = 3000
 const allowedDomains = ['http://example.com', 'https://example.net']
 // 图片防盗链中间件
 const preventHotlinking = (req, res, next) => {
-  const referer = req.get('Referer')
-  if (referer && allowedDomains.every((domain) => !referer.includes(domain))) {
+  const referer = req.get('Referer') // 获取客户端请求头的 Referer
+  if (referer && !allowedDomains.includes(referer)) {
     // 如果 Referer 存在且不在白名单内，返回 403 禁止访问
     return res.status(403).send('Forbidden')
   }
@@ -255,22 +255,15 @@ const QRCode = require('QRCode')
 const app = express()
 
 app.get('/qrcode/:text', (req, res) => {
+  // 客户端提供的文字
   const text = req.params.text
+  // 二维码的颜色
+  const color = { dark: '#000000', light: '#ffffff' }
   // 将 text 生成二维码图片
-  QRCode.toFile(
-    './code.png',
-    text,
-    {
-      color: {
-        dark: '#000000',
-        light: '#ffffff',
-      },
-    },
-    function (err) {
-      if (err) throw err
-      console.log('QR Code generated!')
-    },
-  )
+  QRCode.toFile('./code.png', text, color, function (err) {
+    if (err) throw err
+    console.log('QR Code generated!')
+  })
   res.send('QR Code generated!')
 })
 

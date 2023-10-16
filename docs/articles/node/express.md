@@ -4,7 +4,7 @@ Express 是一个流行的 Node.js 框架，用于构建 Web 应用程序和 API
 
 中文文档：https://express.nodejs.cn/en/4x/api.html
 
-## 快速上手
+## 开始
 
 首先，选择一个目录用来存放 express 相关的文件
 
@@ -46,8 +46,6 @@ nodemon app.js # 使用 nodemon 运行程序
 ```
 
 打开 Web 浏览器，并访问 http://localhost:3000，能够看到应用程序返回的"Hello, Express!"消息
-
-这只是 Express 的入门指南，下一步学习 Express 的路由、中间件和其他高级功能，以构建更强大的 Web 应用程序
 
 ## 请求与响应
 

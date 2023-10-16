@@ -1,8 +1,6 @@
 # 自动引入依赖
 
-在使用 vue3 进行开发时，大部分情况下我们都需要引入 `ref`、`reactive`、`onMounted` 等函数，开发中页面又非常的多，非常容易造成体力负担 🥲。
-
-可以通过 `unplugin-auto-import` 库自动引入 vue 相关的依赖，无需每次使用时都要手动引入
+在使用 vue3 进行开发时，总是需要引入 `ref`、`reactive`、`onMounted` 等函数，非常容易造成体力负担 🥲。可以通过 `unplugin-auto-import` 库自动引入 vue 相关的依赖。
 
 ### 安装
 

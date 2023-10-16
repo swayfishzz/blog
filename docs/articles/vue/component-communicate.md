@@ -278,14 +278,16 @@ import { onUnMounted } from 'vue'
 import mitt from './mitt'
 
 // 事件处理函数
-const handleMessage = (data) => alert(data.message)
+const handler = (data) => {
+  alert(data.message)
+}
 
 // 监听事件
-mitt.on('handleMessage', handleMessage)
+mitt.on('handleMessage', handler)
 
 // 取消事件监听
 onUnMounted(() => {
-  mitt.off('handleMessage', handleMessage)
+  mitt.off('handleMessage', handler)
 })
 ```
 

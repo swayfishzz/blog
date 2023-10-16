@@ -141,7 +141,7 @@ const path = require('path')
 
 console.log(__dirname) // D:\\code\project\src
 const res = path.resolve(__dirname, '../', 'index.js')
-console.log(res) // D:\code\\project\index.js
+console.log(res) // D:\\code\project\index.js
 ```
 
 ### 获取文件所在目录
@@ -182,7 +182,7 @@ console.log(res) // .js
 
 ### 获取路径信息
 
-使用 `path.parse(p)` 解析路径字符串，返回一个对象，包含文件路径的各个部分（目录、文件名、扩展名等），无论这个路径是否为空。
+使用 `path.parse(p)` 解析路径字符串，返回一个对象，包含文件路径的各个部分（目录、文件名、扩展名等），无论这个路径是否存在。
 
 ```js
 const path = require('path')
@@ -200,13 +200,13 @@ console.log(path.parse(filepath))
 
 ### 标准化分隔符
 
-使用 `path.normalize(p)` 标准化路径字符串，将其转换为标准的格式，自动处理路径分隔符和特殊符号。
+使用 `path.normalize(p)` 标准化路径字符串，将其转换为标准的格式，自动处理路径分隔符和特殊符号。返回处理后的路径
 
 ```js
 const path = require('path')
 const p = path.resolve('D://code/project\\index.js')
 
-console.log(path.normalize(p))
+console.log(path.normalize(p)) // D:\code\project\index.js
 ```
 
 ## url 网址
@@ -221,8 +221,6 @@ console.log(path.normalize(p))
 const path = 'https://www.example.com/path?key=value'
 const result = new URL(path)
 console.log(result)
-console.log(result.searchParams.get('key')) // 'value'
-
 // {
 //   href: 'https://www.example.com/path?key=value',
 //   origin: 'https://www.example.com',
@@ -237,6 +235,8 @@ console.log(result.searchParams.get('key')) // 'value'
 //   searchParams: URLSearchParams { 'key' => 'value' },
 //   hash: ''
 // }
+
+  console.log(result.searchParams.get('key')) // 'value'
 ```
 
 Node.js 的核心模块提供了丰富的功能，涵盖了许多常见的编程任务。可以在 Node.js 的官方文档中找到更详细的信息和用法示例

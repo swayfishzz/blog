@@ -1,50 +1,56 @@
 {
-  "hash": "172f0bcf",
-  "browserHash": "26311a61",
+  "hash": "13876034",
+  "browserHash": "9fe0aea1",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "872b04a8",
+      "fileHash": "a0e62e7b",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "98027529",
+      "fileHash": "d08665e2",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "ae3429a2",
+      "fileHash": "38d372f5",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "ae081fdb",
+      "fileHash": "c9ee5c4a",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "772cdc48",
+      "fileHash": "2cab9cf1",
       "needsInterop": false
     },
-    "@theme/index": {
-      "src": "../../../../node_modules/vitepress/dist/client/theme-default/index.js",
-      "file": "@theme_index.js",
-      "fileHash": "f162adce",
+    "element-plus": {
+      "src": "../../../../node_modules/element-plus/es/index.mjs",
+      "file": "element-plus.js",
+      "fileHash": "fa174b79",
+      "needsInterop": false
+    },
+    "element-plus/dist/locale/zh-cn.mjs": {
+      "src": "../../../../node_modules/element-plus/dist/locale/zh-cn.mjs",
+      "file": "element-plus_dist_locale_zh-cn__mjs.js",
+      "fileHash": "8e9e5fca",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-CE7ET3PH": {
-      "file": "chunk-CE7ET3PH.js"
+    "chunk-FWL6CYUC": {
+      "file": "chunk-FWL6CYUC.js"
     },
-    "chunk-V634PGSD": {
-      "file": "chunk-V634PGSD.js"
+    "chunk-UXIASGQL": {
+      "file": "chunk-UXIASGQL.js"
     }
   }
 }
