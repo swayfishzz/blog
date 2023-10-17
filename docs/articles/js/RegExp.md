@@ -91,7 +91,7 @@ console.log(res) // ['abc', 'abc']
 
 ### replace(reg, replacement)
 
-将 reg 替换为 replacement，并返回新的字符串
+语法 `str.replace(reg, replacement)`，将 str 中的 reg 字符串替换为 replacement 字符串，返回替换后的新字符串
 
 + reg：可以是字符串，可以是正则表达式
 + replacement：可以是字符串，可以是函数

@@ -1,7 +1,6 @@
 # ElementPlus 日期区间验证
 
 实现 ElementPlus 两个日期之间的验证，以下是一个毕业时间不得小于入学时间 3 年的示例。
-
 <DateValidate />
 
 ```vue
@@ -69,5 +68,5 @@ const submit = async (formEl) => {
 ```
 
 <script setup>
-import DateValidate from '../src/components/date-validate.vue'
+import DateValidate from '../components/date-validate.vue'
 </script>

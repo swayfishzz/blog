@@ -1,51 +1,60 @@
 {
-  "hash": "13876034",
-  "browserHash": "9fe0aea1",
+  "hash": "a322178a",
+  "browserHash": "06ea108c",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "a0e62e7b",
+      "fileHash": "d050cd7f",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "d08665e2",
+      "fileHash": "001f69f4",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "38d372f5",
+      "fileHash": "bcd755e6",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "c9ee5c4a",
+      "fileHash": "fd5be2f8",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "2cab9cf1",
+      "fileHash": "1beb88c7",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "fa174b79",
+      "fileHash": "56dc3b43",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
       "src": "../../../../node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "8e9e5fca",
+      "fileHash": "58ace9c7",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../../node_modules/@vueuse/core/index.mjs",
+      "file": "@vueuse_core.js",
+      "fileHash": "6406cec8",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-GJUM5KIL": {
+      "file": "chunk-GJUM5KIL.js"
+    },
     "chunk-FWL6CYUC": {
       "file": "chunk-FWL6CYUC.js"
     },

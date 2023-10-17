@@ -60,7 +60,7 @@ export const useCountStore = defineStore('counter', {
 
 ### 组合式 API
 
-使用 `defineStore` 定义一个选项式 API 风格的仓库，接受如下参数：
+使用 `defineStore` 定义一个组合式 API 风格的仓库，接受如下参数：
 
 - **`id`**：字符串，仓库 id
 - **`函数`**：该函数定义了一些响应式属性和方法，并且返回一个带有我们想暴露出去的属性和方法的对象。

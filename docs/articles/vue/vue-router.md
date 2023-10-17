@@ -37,7 +37,7 @@ export default router // 导出路由实例
 
 在你的主应用程序文件（通常是 `main.js`）中，导入路由配置文件并挂载到 Vue 实例中：
 
-```js
+```js {3,6}
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -296,6 +296,49 @@ console.log(route.query.id) // JS 中访问 query 参数
 ```
 
 ### params 参数
+
+又叫路径参数，使用冒号 `:` 来表示，可以在添加路由时配置：
+
+```js {5}
+import User from '@/view/user.vue'
+
+const routes = [
+  {
+    path: '/user/:id', // :id 代表动态参数
+    component: User,
+  },
+]
+```
+
+此时访问 `/user/jack` 和 `/user/tom` 都会映射到同一个路由
+
+在组件中传递 params 参数：
+
+```js {6}
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+router.push({
+  path: '/user',
+  params: { id: 'jack' },
+})
+```
+
+User 组件中访问传递的 params 参数：
+
+```vue
+<template>
+  <!-- 在模板中访问 -->
+  <div>{{ $route.params.id }}</div>
+</template>
+
+<script>
+import { useRoute } from 'vue-router'
+// 在 script 中访问
+const route = useRoute()
+console.log(route.params.id)
+</script>
+```
 
 ### 路由元信息 meta
 

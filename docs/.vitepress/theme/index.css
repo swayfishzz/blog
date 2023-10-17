@@ -1,5 +1,11 @@
-.code-box {
+:root {
+  --sway-border-color: #dcdfe6;
+}
+html.dark {
+  --sway-border-color: #4c4d4f;
+}
+.code-view {
   padding: 24px;
-  border: 1px solid #dcdfe6;
+  border: 1px solid var(--sway-border-color);
   border-radius: 4px;
 }

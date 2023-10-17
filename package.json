@@ -12,6 +12,7 @@
   "author": "liuruida <swayfishzz@163.com>",
   "license": "ISC",
   "dependencies": {
+    "@vueuse/core": "^10.5.0",
     "element-plus": "^2.4.0",
     "vitepress": "^1.0.0-rc.21"
   }

@@ -344,10 +344,10 @@ const app = express()
 const router = express.Router()
 
 router.get('/:id', (req, res) => {
-  // 处理获取单个用户的请求
+  // ...
 })
 router.post('/', (req, res) => {
-  // 处理新增用户的请求
+  // ...
 })
 
 app.use('/api/user', router) // 将路由组添加到"/api/user"下
@@ -357,6 +357,9 @@ app.listen(3000, () => {
 })
 ```
 
-使用`app.use()`将这个路由组添加到应用程序的`/api`路径下
+使用 `app.use()` 将这个路由组添加到应用程序的 `/api/user` 路径下，此时
+
+- 访问 `/:id` 时会将实际路径转到 `/api/user/:id`
+- 访问 `/` 时会将实际路径转到 `/api/user/`
 
 以上内容即为 Express 的入门指南，下一步将例举常见的应用场景，以构建更丰富的应用程序
