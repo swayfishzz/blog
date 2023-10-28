@@ -15,7 +15,7 @@ export default {
     // 导航栏配置
     nav: [
       { text: '博客', link: '/articles/vue/vite' },
-      { text: 'Demo', link: '/demo/date-validate' },
+      { text: 'Demo', link: '/demo/loading' },
     ],
     // 左侧边栏配置
     sidebar: {
@@ -25,9 +25,11 @@ export default {
           collapsed: false,
           items: [
             { text: 'Vite 基本使用', link: '/articles/vue/vite' },
+            { text: '组件操作', link: '/articles/vue/component' },
             { text: '组件通信', link: '/articles/vue/component-communicate' },
             { text: '状态管理 Pinia', link: '/articles/vue/pinia' },
             { text: '路由管理 VueRouter', link: '/articles/vue/vue-router' },
+            { text: 'CSS 功能', link: '/articles/vue/css' },  
             { text: '自动引入依赖', link: '/articles/vue/auto-import-util' },
           ],
         },
@@ -58,13 +60,18 @@ export default {
       '/demo': [
         {
           text: '效果',
-          items: [{ text: 'ElementPlus 日期区间验证', link: '/demo/date-validate' }],
+          items: [
+            { text: 'CSS Loading 效果', link: '/demo/loading' },
+            // { text: 'Driver.js 页面引导', link: '/demo/driver' },
+            // { text: 'ElementPlus 表格排序', link: '/demo/table-sort' },
+            { text: 'ElementPlus 日期区间验证', link: '/demo/date-validate' },
+          ],
         },
       ],
     },
     outline: 'deep', // 右侧大纲，深度显示
-    outlineTitle: '章节导航', // 右侧大纲文本
-    sidebarMenuLabel: '分类', // 移动端 左侧边栏收起时，显示的文本
+    outlineTitle: '目录', // 右侧大纲文本
+    sidebarMenuLabel: '文章列表', // 移动端 左侧边栏收起时，显示的文本
     returnToTopLabel: '回顶部 ↑', // 移动端 点击大纲时，回顶部按钮的文本
     docFooter: {
       prev: '上一篇', // 文字末尾 上篇文章按钮的文本

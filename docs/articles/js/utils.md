@@ -215,3 +215,113 @@ const foo = { a: 1, b: 2, c: 3 }
 pick(foo, 'a', 'b') // { a: 1, b: 2 }
 pick(foo, 'a', 'c') // { a: 1, c: 3 }
 ```
+
+### 模糊搜索
+
+```js
+/**
+ * @param {Array} list 要模糊搜索的数组
+ * @param {String} keyword 用户输入的关键字
+ * @param {String} prop 根据此属性名模糊搜索
+ * @returns {Array}
+ */
+const fuzzyQuery = (list, keyword, prop) => {
+  const reg = new RegExp(keyword)
+  const arr = []
+  for (let i = 0; i < list.length; i++) {
+    if (reg.test(list[i][prop])) {
+      arr.push(list[i])
+    }
+  }
+  return arr
+}
+```
+
+示例：
+
+```js
+const users = [
+  { id: 1, name: '张三' },
+  { id: 2, name: '李四' },
+  { id: 3, name: '王五' },
+  { id: 4, name: '张三丰' },
+]
+
+console.log(fuzzyQuery(users, '张', 'name'))
+// [ { id: 1, name: '张三' }, { id: 4, name: '张三丰' } ]
+```
+
+### 数组对象去重
+
+```js
+/**
+ * @param {Array} arr 要去重的数组
+ * @param {String} key 根据该属性去重
+ * @returns {Array}
+ */
+const uniqueByProp = (arr = [], key = 'id') => {
+  if (arr.length === 0) return
+  let list = []
+  const map = {}
+  arr.forEach((item) => {
+    if (!map[item[key]]) {
+      map[item[key]] = item
+    }
+  })
+  list = Object.values(map)
+  return list
+}
+```
+
+示例：
+
+```js
+const users = [
+  { name: '张三', age: 18 },
+  { name: '张三', age: 19 },
+  { name: '李四', age: 20 },
+  { name: '李四', age: 21 },
+  { name: '王五', age: 22 },
+  { name: '王五', age: 23 },
+]
+
+const result = uniqueByProp(users, 'name')
+console.log(result)
+```
+
+### 生成 UUID
+
+```js
+/**
+ * @returns {String}
+ */
+const createUUID = () => {
+  const temp_url = URL.createObjectURL(new Blob())
+  const uuid = temp_url.toString()
+  URL.revokeObjectURL(temp_url) //释放这个url
+  return uuid.substring(uuid.lastIndexOf(':') + 1)
+}
+```
+
+示例：
+
+```js
+const id = createUUID()
+console.log(id) // 02ca0781-fdcf-4b86-b6e4-3e01adfbc978
+```
+
+### 滚动到指定元素位置
+
+```js
+const smoothScroll = (element) => {
+  document.querySelector(element).scrollIntoView({
+    behavior: 'smooth',
+  })
+}
+```
+
+示例：
+
+```js
+smoothScroll('#container') // 平滑滚动至 #container 元素
+```

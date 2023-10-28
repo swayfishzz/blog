@@ -27,6 +27,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { ElMessage } from 'element-plus'
 
 const form = reactive({ start: '', end: '' })
 const rules = reactive({
@@ -52,7 +53,7 @@ function validateEndDate(_rule, value, callback) {
 const submit = async (formEl) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit')
+      ElMessage.success('submit')
     } else {
       console.log('err', fields)
     }

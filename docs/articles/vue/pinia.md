@@ -78,7 +78,7 @@ import { ref, computed } from 'vue'
 export const useCountStore = defineStore('counter', () => {
   const count = ref(0) // 仓库的数据
   const double = computed(() => count.value * 2) // 二次计算的数据
-  const increment = count.value++ // 修改仓库数据的方法
+  const increment = () => count.value++ // 修改仓库数据的方法
 
   return {
     count,

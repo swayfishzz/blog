@@ -1,5 +1,6 @@
 :root {
   --sway-border-color: #dcdfe6;
+  --sway-primary-color: #409eff;
 }
 html.dark {
   --sway-border-color: #4c4d4f;
