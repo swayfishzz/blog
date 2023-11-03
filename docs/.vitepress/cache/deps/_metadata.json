@@ -1,65 +1,77 @@
 {
-  "hash": "a322178a",
-  "browserHash": "06ea108c",
+  "hash": "5cb27f4f",
+  "browserHash": "de8be4a6",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "7444bfb1",
+      "fileHash": "3eb73c7c",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "7ddbfa4a",
+      "fileHash": "544fbbec",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "3f375fec",
+      "fileHash": "0192b0f0",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "a8d7b86a",
+      "fileHash": "1e61f333",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "a526f98e",
+      "fileHash": "f2f344d9",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "6a7c1cf2",
+      "fileHash": "b7a61eca",
       "needsInterop": false
     },
     "element-plus/dist/locale/zh-cn.mjs": {
       "src": "../../../../node_modules/element-plus/dist/locale/zh-cn.mjs",
       "file": "element-plus_dist_locale_zh-cn__mjs.js",
-      "fileHash": "49f21b67",
+      "fileHash": "b458edfa",
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
-      "fileHash": "077d8a04",
+      "fileHash": "502d7134",
+      "needsInterop": false
+    },
+    "@imengyu/vue3-context-menu": {
+      "src": "../../../../node_modules/@imengyu/vue3-context-menu/lib/vue3-context-menu.umd.min.js",
+      "file": "@imengyu_vue3-context-menu.js",
+      "fileHash": "077d0b99",
+      "needsInterop": true
+    },
+    "driver.js": {
+      "src": "../../../../node_modules/driver.js/dist/driver.js.mjs",
+      "file": "driver__js.js",
+      "fileHash": "e9292e64",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-GJUM5KIL": {
-      "file": "chunk-GJUM5KIL.js"
+    "chunk-4HNXCXXH": {
+      "file": "chunk-4HNXCXXH.js"
     },
-    "chunk-FWL6CYUC": {
-      "file": "chunk-FWL6CYUC.js"
+    "chunk-E4AJJXTF": {
+      "file": "chunk-E4AJJXTF.js"
     },
-    "chunk-UXIASGQL": {
-      "file": "chunk-UXIASGQL.js"
+    "chunk-ROME4SDB": {
+      "file": "chunk-ROME4SDB.js"
     }
   }
 }

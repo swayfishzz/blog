@@ -10,3 +10,8 @@ html.dark {
   border: 1px solid var(--sway-border-color);
   border-radius: 4px;
 }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
