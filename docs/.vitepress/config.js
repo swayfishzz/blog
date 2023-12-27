@@ -17,7 +17,7 @@ export default {
     head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     // 导航栏配置
     nav: [
-      { text: '博客', link: '/articles/vue/vite' },
+      { text: '博客', link: '/articles/html/dom' },
       { text: 'Demo', link: '/demo/loading' },
     ],
     // 左侧边栏配置

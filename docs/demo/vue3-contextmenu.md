@@ -79,7 +79,7 @@ const openMenu = (e) => {
 </script>
 ```
 
-详细配置项见 https://imengyu.top/pages/vue3-context-menu-docs/api/ContextMenuInstance.html
+关于更多详细的配置项见 https://imengyu.top/pages/vue3-context-menu-docs/api/ContextMenuInstance.html
 
 <script setup>
 import ContextMenu from '../components/vue3-contextmenu.vue'
