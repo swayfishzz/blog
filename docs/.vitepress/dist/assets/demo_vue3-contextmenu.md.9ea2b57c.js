@@ -33,6 +33,7 @@ import{_ as r,o,c as e,k as E,$ as y,a2 as a,H as i,Q as t}from"./chunks/framewo
 <span class="line"><span style="color:#E1E4E8;">      {</span></span>
 <span class="line"><span style="color:#E1E4E8;">        label: </span><span style="color:#9ECBFF;">&#39;点我试试&#39;</span><span style="color:#E1E4E8;">,</span></span>
 <span class="line"><span style="color:#E1E4E8;">        icon: </span><span style="color:#B392F0;">h</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&#39;img&#39;</span><span style="color:#E1E4E8;">, { src: questionImg, style }), </span><span style="color:#6A737D;">// 使用 VNode 生成图标</span></span>
+<span class="line"><span style="color:#E1E4E8;">        </span><span style="color:#6A737D;">// iconFontClass: &#39;your-font-class&#39;, // 也可以使用字体图表类名</span></span>
 <span class="line"><span style="color:#E1E4E8;">        </span><span style="color:#B392F0;">onClick</span><span style="color:#E1E4E8;">: () </span><span style="color:#F97583;">=&gt;</span><span style="color:#E1E4E8;"> </span><span style="color:#B392F0;">confirm</span><span style="color:#E1E4E8;">(</span><span style="color:#9ECBFF;">&#39;你要使用这个插件吗？&#39;</span><span style="color:#E1E4E8;">),</span></span>
 <span class="line"><span style="color:#E1E4E8;">      },</span></span>
 <span class="line"><span style="color:#E1E4E8;">      {</span></span>
@@ -80,6 +81,7 @@ import{_ as r,o,c as e,k as E,$ as y,a2 as a,H as i,Q as t}from"./chunks/framewo
 <span class="line"><span style="color:#24292E;">      {</span></span>
 <span class="line"><span style="color:#24292E;">        label: </span><span style="color:#032F62;">&#39;点我试试&#39;</span><span style="color:#24292E;">,</span></span>
 <span class="line"><span style="color:#24292E;">        icon: </span><span style="color:#6F42C1;">h</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&#39;img&#39;</span><span style="color:#24292E;">, { src: questionImg, style }), </span><span style="color:#6A737D;">// 使用 VNode 生成图标</span></span>
+<span class="line"><span style="color:#24292E;">        </span><span style="color:#6A737D;">// iconFontClass: &#39;your-font-class&#39;, // 也可以使用字体图表类名</span></span>
 <span class="line"><span style="color:#24292E;">        </span><span style="color:#6F42C1;">onClick</span><span style="color:#24292E;">: () </span><span style="color:#D73A49;">=&gt;</span><span style="color:#24292E;"> </span><span style="color:#6F42C1;">confirm</span><span style="color:#24292E;">(</span><span style="color:#032F62;">&#39;你要使用这个插件吗？&#39;</span><span style="color:#24292E;">),</span></span>
 <span class="line"><span style="color:#24292E;">      },</span></span>
 <span class="line"><span style="color:#24292E;">      {</span></span>

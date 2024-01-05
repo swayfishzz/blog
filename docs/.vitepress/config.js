@@ -1,5 +1,5 @@
-import articles from './articles' // 文章
-import demo from './demo' // 效果
+import articles from './categories/articles' // 文章
+import demo from './categories/demo' // 效果
 
 export default {
   title: 'zZ的博客', //站点标题
