@@ -4,17 +4,18 @@ export default [
     collapsed: false,
     items: [
       { text: 'DOM 操作', link: '/articles/html/dom' },
-      { text: '事件处理', link: '/articles/html/event' },
-      { text: 'Fetch 基本使用', link: '/articles/html/fetch' },
-      { text: '拖拽 API', link: '/articles/html/draggable' },
       { text: '自定义属性', link: '/articles/html/custom-attr' },
+      { text: '事件处理', link: '/articles/html/event' },
+      { text: '拖拽 API', link: '/articles/html/draggable' },
       { text: 'localStorage', link: '/articles/html/localStorage' },
+      { text: 'Fetch 基本使用', link: '/articles/html/fetch' },
     ],
   },
   {
     text: 'JS',
     collapsed: false,
     items: [
+      { text: 'this', link: '/articles/js/this' },
       { text: '异步编程', link: '/articles/js/async' },
       { text: '正则表达式', link: '/articles/js/RegExp' },
       { text: '工具函数', link: '/articles/js/utils' },

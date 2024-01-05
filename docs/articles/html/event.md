@@ -195,22 +195,12 @@ dom.addEventListener('click', function (event) {
 })
 ```
 
-### 阻止捕获传播
+### 在捕获阶段执行
 
 事件传播的默认行为是从捕获阶段开始，然后到达目标阶段，最后进入冒泡阶段。这个默认行为可以通过 `addEventListener()` 方法的第三个参数（`useCapture`）来控制。如果 `useCapture` 为 `true`，则事件将在捕获阶段执行；如果为 `false`（默认值），则事件将在冒泡阶段执行。
 
-```js
-element.addEventListener(event, handler, useCapture)
-```
-
-类似地，可以在事件捕获阶段使用 `event.stopPropagation()` 阻止事件在 DOM 中继续向下传播，从而防止祖先元素上的捕获阶段事件处理程序被触发。要在捕获阶段停止传播，需要将 `addEventListener` 的第三个参数设置为 `true`。
-
 ```javascript
-child.addEventListener(
-  'click',
-  function (event) {
-    event.stopPropagation() // 阻止事件冒泡传播到父元素
-  },
-  true,
-) // 在捕获阶段触发
+button.addEventListener('click', function() {
+  ···
+}, true) // 在捕获阶段触发
 ```

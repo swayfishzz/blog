@@ -117,86 +117,66 @@ npm start
 npm init -y
 ```
 
-### 安装包
+### 还原项目依赖
 
-还原项目依赖，根据项目的 package.json 文件来安装所有依赖项
+根据项目的 package.json 文件来安装所有依赖项
 
 ```bash
 npm i
 ```
 
-安装一个或多个包
+### 安装包
 
-> 会添加到 `dependencies` 中
+#### 作为生产依赖安装
 
 ```bash
 npm i 包名
-npm i 包名1 包名2
+npm i 包名1 包名2 # 安装多个包
+npm i 包名@版本号 # 安装指定版本
 ```
 
-作为开发依赖安装，会将包添加到项目的 `devDependencies` 中
+#### 作为开发依赖安装
+
+使用 `-D` 参数安装包将它们添加到项目的 `devDependencies` 中，`devDependencies` 是一组仅在开发环境中需要的包的列表。这样做可以减小生产环境的包大小。
 
 ```bash
 npm i 包名 -D
 ```
 
-指定版本
-
-```bash
-npm i 包名@版本号
-npm i express@4
-```
-
-全局安装
-
-> 不推荐全局安装，后续 [npx](#npx) 中会详细说明
+#### 全局安装
 
 ```bash
 npm i 包名 -g
 ```
 
-### 其它
-
-卸载包
+### 卸载包
 
 ```bash
-npm uninstall 包名 # 移除包
-npm uninstall 包名 -g # 移除全局安装的包
+npm un 包名 # 移除包
+npm un 包名 -g # 移除全局安装的包
 ```
 
-更新包
+### 查看全局安装的包
 
 ```bash
-npm update 包名 # 更新到其最新版本
+npm list -g --depth=0 # depth=0代表查看的嵌套层级为0
 ```
 
-查看当前项目的包
+### 查看存放全局包的路径
 
 ```bash
-npm list
-```
-
-查看全局安装的包
-
-> 会首先输出存放全局包的目录，再列出全局包
-> 
-> depth 代表查看的深度，为 0 表示只查看顶级依赖
-
-```bash
-npm list -g --depth=0
+npm prefix -g
 ```
 
 ### npx
 
-全局安装的包会存放在一个指定目录中，如果它们依赖于相同的包，而依赖的版本不同，这可能导致版本冲突和不兼容性问题；而且不适用于多个项目之间的隔离。
-
-`npx` 是一个 npm 包含的工具，主要作用是在没有全局安装的情况下，使用一些包的命令行工具。
-
-例如：未全局安装 `create-react-app` 时，使用 npx 来运行其命令行工具：
+npx 想要解决的主要问题，就是调用项目内部安装的模块，npx 还能避免全局安装的模块。比如，`create-react-app`这个模块是全局安装，npx 可以运行它，而且不进行全局安装。
 
 ```bash
-npx create-react-app my-app
+npx create-react-app my-react-app
 ```
+
+运行上面的代码时，npx 将`create-react-app`下载到一个临时目录，使用以后再删除。这样就会避免全局包的版本差异问题。
 
 ## 其它包管理器
 

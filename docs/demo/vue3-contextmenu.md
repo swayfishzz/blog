@@ -56,6 +56,7 @@ const openMenu = (e) => {
       {
         label: '点我试试',
         icon: h('img', { src: questionImg, style }), // 使用 VNode 生成图标
+        // iconFontClass: 'your-font-class', // 也可以使用字体图表类名
         onClick: () => confirm('你要使用这个插件吗？'),
       },
       {

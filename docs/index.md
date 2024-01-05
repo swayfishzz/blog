@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 进入博客
-      link: /articles/vue/vite
+      link: /articles/html/dom
     - theme: alt
       text: GitHub
       link: https://github.com/swayfishzz
