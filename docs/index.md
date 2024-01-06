@@ -6,12 +6,12 @@ hero:
   # text: 记录技术笔记
   tagline: 记录技术笔记
   image:
-    src: /home-bg.png
+    src: /banner.png
     alt: zZ的博客
   actions:
     - theme: brand
       text: 进入博客
-      link: /articles/html/dom
+      link: /html/dom
     - theme: alt
       text: GitHub
       link: https://github.com/swayfishzz

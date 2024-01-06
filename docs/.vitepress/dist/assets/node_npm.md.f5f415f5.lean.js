@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as p,Q as n}from"./chunks/framework.8048b864.js";const F=JSON.parse('{"title":"npm 包管理器","description":"","frontmatter":{},"headers":[],"relativePath":"node/npm.md","filePath":"node/npm.md"}'),l={name:"node/npm.md"},o=n("",115),e=[o];function c(t,r,i,y,E,d){return a(),p("div",null,e)}const u=s(l,[["render",c]]);export{F as __pageData,u as default};
