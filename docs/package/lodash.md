@@ -2,7 +2,7 @@
 
 [Lodash](https://www.lodashjs.com/) 是一个一致性、模块化、高性能的 JavaScript 实用工具库。
 
-推荐使用 [lodash-es](https://www.npmjs.com/package/lodash-es)，它是基于 ESM 实现的，利于构建工具的 [tree shaking](https://webpack.docschina.org/guides/tree-shaking/)（树摇优化）
+推荐使用 [lodash-es](https://www.npmjs.com/package/lodash-es)，它是基于 ESM 实现的，利于构建工具的 [tree shaking](https://webpack.docschina.org/guides/tree-shaking/)（摇树优化）
 
 ```bash
 npm i lodash-es
