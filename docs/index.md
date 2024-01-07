@@ -12,9 +12,6 @@ hero:
     - theme: brand
       text: 进入博客
       link: /html/dom
-    - theme: alt
-      text: GitHub
-      link: https://github.com/swayfishzz
 
 features:
   - icon:
@@ -22,7 +19,7 @@ features:
       width: 30
     title: 基于 VitePress 搭建
     details: 本网站使用 VitePress 搭建，VitePress 是使用 Vite 和 Vue 制作的静态网站生成器
-    link: https://vitepress.dev/
+    link: https://vitepress.qzxdp.cn
     linkText: VitePress
   - icon:
       light: /icon/markdown.svg
@@ -30,8 +27,8 @@ features:
       width: 30
     title: 专注于内容
     details: 只需专注于 Markdown 内容就可以轻松创作出漂亮的文档。
-    link: https://zh.wikipedia.org/zh-cn/Markdown
-    linkText: Markdown-wiki
+    link: https://www.markdown.xyz
+    linkText: Markdown
   - icon:
       src: /icon/gitee.svg
       width: 30

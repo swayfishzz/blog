@@ -64,11 +64,11 @@ console.log(import.meta.env.VITE_APP_BASE_URL)
 还可以为不同的模式创建 env 文件
 
 ```bash
-.env 										# 所有情况下都会加载
-.env.local 							# 所有情况下都会加载，但会被 git 忽略
-.env.development 				# 只在开发模式下加载
-.env.production 				# 只在生产模式下加载
-.env.production.local 	# 只在生产模式下加载，并被 git 忽略
+.env                   # 所有情况下都会加载
+.env.local             # 所有情况下都会加载，但会被 git 忽略
+.env.development       # 只在开发模式下加载
+.env.production        # 只在生产模式下加载
+.env.production.local  # 只在生产模式下加载，并被 git 忽略
 ```
 
 例如，根据环境不同，访问对应的环境变量：
@@ -102,11 +102,11 @@ export default {
         target: 'https://www.test.com', // 要进行代理的域名
         changeOrigin: true, // 修改请求头中的 host 和 origin
         pathRewrite: {
-          '^/api2': '', // 将路径中的【/api2】重写为 ''
-        },
-      },
-    },
-  },
+          '^/api2': '' // 将路径中的【/api2】重写为 ''
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -126,9 +126,9 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // 配置路径别名
-    },
-  },
+      '@': path.resolve(__dirname, 'src') // 配置路径别名
+    }
+  }
 })
 ```
 
@@ -143,10 +143,10 @@ export default {
       // 配置 scss，也可以是 less、stylus
       scss: {
         // 添加全局的 Sass 变量、混入等
-        additionalData: '@import "@/styles/variables.scss";',
-      },
-    },
-  },
+        additionalData: '@import "@/styles/variables.scss";'
+      }
+    }
+  }
 }
 ```
 
@@ -160,10 +160,46 @@ export default {
     rollupOptions: {
       output: {
         manualChunks: {
-          lodash: ['lodash'],
-        },
-      },
-    },
-  },
+          lodash: ['lodash']
+        }
+      }
+    }
+  }
 }
+```
+
+## 插件
+
+### 自动引入依赖
+
+在使用 vue3 进行开发时，总是需要引入 `ref`、`reactive`、`onMounted` 等函数，可以通过 `unplugin-auto-import` 库自动引入 vue 相关的依赖。
+
+使用 npm 进行安装
+
+```bash
+npm i unplugin-auto-import -D
+```
+
+在 `vite.config.js` 中添加配置，将 `vue` 和 `vue-router` 都进行添加：
+
+```js
+// vite.config.ts
+import AutoImport from 'unplugin-auto-import/vite'
+
+export default defineConfig({
+  plugins: [AutoImport({ imports: ['vue', 'vue-router'] })]
+})
+```
+
+添加完成后，在 vue 中使用就可以不用导入了，例如：
+
+```vue
+<script setup>
+const value = ref(0)
+const user = reactive([])
+onMounted(() => {
+  /* ... */
+})
+const route = useRoute()
+</script>
 ```

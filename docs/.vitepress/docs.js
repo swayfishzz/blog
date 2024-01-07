@@ -32,7 +32,6 @@ export default [
       { text: '状态管理 Pinia', link: '/vue/pinia' },
       { text: '路由管理 VueRouter', link: '/vue/vue-router' },
       { text: 'CSS 功能', link: '/vue/css' },
-      { text: '自动引入依赖', link: '/vue/auto-import-util' },
     ],
   },
   {
@@ -55,6 +54,13 @@ export default [
       { text: '常用内置模块', link: '/node/module' },
       { text: 'Express 基本使用', link: '/node/express' },
       { text: 'Express 常见场景', link: '/node/express-scene' },
+    ],
+  },
+  {
+    text: '工程化',
+    collapsed: false,
+    items: [
+      { text: 'CSS', link: '/project/css' },
     ],
   },
 ]
