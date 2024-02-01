@@ -7,7 +7,6 @@ export default [
       { text: '自定义属性', link: '/html/custom-attr' },
       { text: '事件处理', link: '/html/event' },
       { text: '拖拽 API', link: '/html/draggable' },
-      { text: 'localStorage', link: '/html/localStorage' },
       { text: 'Fetch 基本使用', link: '/html/fetch' },
     ],
   },
@@ -23,6 +22,18 @@ export default [
     ],
   },
   {
+    text: '库',
+    collapsed: false,
+    items: [
+      { text: 'lodash', link: '/package/lodash' },
+      { text: 'luxon', link: '/package/luxon' },
+      { text: 'nprogress', link: '/package/nprogress' },
+      { text: 'sortablejs', link: '/package/sortablejs' },
+      { text: 'Vue3 右键菜单', link: '/package/vue3-contextmenu' },
+      { text: 'AOS 滚动动画', link: '/package/aos' },
+    ],
+  },
+  {
     text: 'Vue',
     collapsed: false,
     items: [
@@ -32,17 +43,6 @@ export default [
       { text: '状态管理 Pinia', link: '/vue/pinia' },
       { text: '路由管理 VueRouter', link: '/vue/vue-router' },
       { text: 'CSS 功能', link: '/vue/css' },
-    ],
-  },
-  {
-    text: '库',
-    collapsed: false,
-    items: [
-      { text: 'lodash', link: '/package/lodash' },
-      { text: 'luxon', link: '/package/luxon' },
-      { text: 'nprogress', link: '/package/nprogress' },
-      { text: 'sortablejs', link: '/package/sortablejs' },
-      { text: 'Vue3 右键菜单', link: '/package/vue3-contextmenu' },
     ],
   },
   {
