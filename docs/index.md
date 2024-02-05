@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 进入博客
-      link: /html/dom
+      link: /blog/dom
 
 features:
   - icon:

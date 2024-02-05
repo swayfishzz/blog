@@ -1,4 +1,5 @@
-import docs from './docs'
+import blogSidebar from './blogSidebar'
+import otherSidebar from './otherSidebar'
 
 export default {
   title: 'zZ的博客', //站点标题
@@ -15,11 +16,14 @@ export default {
     head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     // 导航栏配置
     nav: [
-      { text: '博客', link: '/html/dom' }
-      // { text: '其它', link: '' },
+      { text: '博客', link: '/blog/dom' },
+      { text: '其它', link: '/other/app' },
     ],
     // 左侧边栏配置
-    sidebar: docs,
+    sidebar: {
+      '/blog/': blogSidebar,
+      '/other/': otherSidebar,
+    },
     outline: 'deep', // 右侧大纲，深度显示
     outlineTitle: '目录', // 右侧大纲文本
     sidebarMenuLabel: '文章列表', // 移动端 左侧边栏收起时，显示的文本

@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as p}from"./chunks/framework.8048b864.js";const u=JSON.parse('{"title":"状态管理 Pinia","description":"","frontmatter":{},"headers":[],"relativePath":"vue/pinia.md","filePath":"vue/pinia.md"}'),l={name:"vue/pinia.md"},o=p("",33),e=[o];function t(c,r,E,y,i,d){return n(),a("div",null,e)}const g=s(l,[["render",t]]);export{u as __pageData,g as default};

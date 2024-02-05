@@ -1,0 +1,1 @@
+import{_ as e,o as a,c as i,Q as r}from"./chunks/framework.8048b864.js";const u=JSON.parse('{"title":"工具软件推荐","description":"","frontmatter":{},"headers":[],"relativePath":"other/app.md","filePath":"other/app.md"}'),t={name:"other/app.md"},n=r("",34),l=[n];function o(s,p,h,c,d,g){return a(),i("div",null,l)}const f=e(t,[["render",o]]);export{u as __pageData,f as default};

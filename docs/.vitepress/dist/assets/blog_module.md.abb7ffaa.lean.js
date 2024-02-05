@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,Q as o}from"./chunks/framework.8048b864.js";const h=JSON.parse('{"title":"模块化","description":"","frontmatter":{},"headers":[],"relativePath":"blog/module.md","filePath":"blog/module.md"}'),l={name:"blog/module.md"},p=o("",82),e=[p];function c(t,r,y,E,i,d){return a(),n("div",null,e)}const g=s(l,[["render",c]]);export{h as __pageData,g as default};

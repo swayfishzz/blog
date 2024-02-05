@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.8048b864.js";const F=JSON.parse('{"title":"DOM 操作","description":"","frontmatter":{},"headers":[],"relativePath":"html/dom.md","filePath":"html/dom.md"}'),o={name:"html/dom.md"},p=l("",54),e=[p];function t(c,r,E,y,i,d){return n(),a("div",null,e)}const h=s(o,[["render",t]]);export{F as __pageData,h as default};

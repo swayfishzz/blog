@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.8048b864.js";const F=JSON.parse('{"title":"CSS 功能","description":"","frontmatter":{},"headers":[],"relativePath":"vue/css.md","filePath":"vue/css.md"}'),p={name:"vue/css.md"},o=l("",18),e=[o];function t(c,r,E,y,i,d){return n(),a("div",null,e)}const g=s(p,[["render",t]]);export{F as __pageData,g as default};
