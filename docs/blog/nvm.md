@@ -12,7 +12,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh
 ```
 
-**在 Windows 上**，你可以从 [NVM for Windows](https://github.com/coreybutler/nvm-windows) （需要墙）下载并安装 NVM。或直接通过[百度网盘链接](https://pan.baidu.com/s/1Si65BQMUsNdmNBSAk25I-g?pwd=sway)安装
+**在 Windows 上**，你可以从 [NVM for Windows](https://github.com/coreybutler/nvm-windows) 下载并安装 NVM，或直接通过[百度网盘链接](https://pan.baidu.com/s/1Si65BQMUsNdmNBSAk25I-g?pwd=sway)安装
 
 ## 检查 NVM 是否安装成功
 

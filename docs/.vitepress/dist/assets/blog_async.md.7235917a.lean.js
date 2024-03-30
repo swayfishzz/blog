@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,Q as l}from"./chunks/framework.8048b864.js";const h=JSON.parse('{"title":"异步编程","description":"","frontmatter":{},"headers":[],"relativePath":"blog/async.md","filePath":"blog/async.md"}'),p={name:"blog/async.md"},o=l("",56),e=[o];function c(t,r,E,y,i,F){return a(),n("div",null,e)}const m=s(p,[["render",c]]);export{h as __pageData,m as default};

@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.CuqwmWrD.js";const E=JSON.parse('{"title":"模块化","description":"","frontmatter":{},"headers":[],"relativePath":"blog/module.md","filePath":"blog/module.md"}'),n={name:"blog/module.md"},e=t("",82),l=[e];function p(h,k,d,o,r,c){return a(),i("div",null,l)}const y=s(n,[["render",p]]);export{E as __pageData,y as default};

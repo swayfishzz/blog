@@ -62,7 +62,7 @@ function useStyle(dom, style) {
 useStyle(button, {
   borderRadius: '5px',
   border: 'none',
-  background: 'skyblue'
+  background: 'skyblue',
 })
 ```
 
@@ -185,10 +185,14 @@ $width: 100%;
 > Sass 团队不推荐继续使用 @import 规则。Sass 将在未来几年内逐步淘汰它。（[点这里查看详情](https://sass-lang.com/documentation/at-rules/import/)）
 
 ```scss
-@use 'colors';
+// colors.scss
+$primary: skyblue;
 
-.btn {
-  color: use.$primary;
+// any.scss
+@use './colors.scss';
+
+.box {
+  background: colors.$primary;
 }
 ```
 
@@ -198,10 +202,9 @@ $width: 100%;
 $theme: light;
 body {
   @if $theme == light {
-    background-color: #ffffff;
+    background-color: #fff;
   } @else {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: #333;
   }
 }
 ```
@@ -210,10 +213,9 @@ body {
 
 [Tailwind CSS](https://www.tailwindcss.cn/) 是一种基于原子类的 CSS 框架，它提供了一系列的原子类，使开发者可以直接在 HTML 中应用这些类，而无需编写自定义的 CSS 样式。
 
-使用 Tailwind CSS 通常需要通过构建工具（如 Webpack、Vite）将其编译成最终的 CSS 文件。常见做法是：在构建工具中使用 PostCSS，并将 Tailwind CSS 作为 PostCSS 的插件集成。
+使用 Tailwind CSS 通常需要通过构建工具（如 Webpack、Vite）将其编译成最终的 CSS 文件。
 
-- [在 Webpack 中使用](https://gist.github.com/bradtraversy/1c93938c1fe4f10d1e5b0532ae22e16a)
-- [在 Vite 中使用](https://www.tailwindcss.cn/docs/guides/vite)
+> [Tailwind CSS 与常见构建工具结合使用](https://tailwind.nodejs.cn/docs/installation/framework-guides)
 
 **原子类：** Tailwind CSS 提供了大量的原子类，每个类都对应一个具体的 CSS 样式。这些类包括颜色、字体大小、边距、填充等，以及更复杂的布局和响应式类。
 
@@ -228,9 +230,9 @@ body {
 module.exports = {
   theme: {
     extend: {
-      colors: { customBlue: '#3490dc' }
-    }
-  }
+      colors: { customBlue: '#3490dc' },
+    },
+  },
 }
 ```
 
@@ -245,11 +247,11 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')]
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 }
 ```
 
-一开始可能需要适应原子类的使用方式，但一旦熟悉，Tailwind CSS 可以极大地提高开发速度和样式的一致性。Tailwind CSS 为 VS Code 提供了扩展 `Tailwind CSS IntelliSense`
+一开始可能需要适应原子类的使用方式，但一旦熟悉，Tailwind CSS 可以极大地提高开发速度和样式的一致性。如果你使用的编辑器为 VS Code，可以下载 [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) 以在开发时获取 Tailwind CSS 的类名提示
 
 ## 兼容性
 
@@ -282,7 +284,7 @@ module.exports = {
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [require('autoprefixer')]
+  plugins: [require('autoprefixer')],
 }
 ```
 

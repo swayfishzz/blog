@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as o,Q as n}from"./chunks/framework.8048b864.js";const F=JSON.parse('{"title":"luxon","description":"","frontmatter":{},"headers":[],"relativePath":"blog/luxon.md","filePath":"blog/luxon.md"}'),l={name:"blog/luxon.md"},p=n("",19),e=[p];function t(c,r,y,E,i,d){return a(),o("div",null,e)}const u=s(l,[["render",t]]);export{F as __pageData,u as default};

@@ -241,7 +241,7 @@ setTimeout(() => {
 
 ### mitt
 
-`mitt` 是一个简单而强大的 JavaScript 事件总线库，用于在应用程序的不同部分之间进行事件通信。对于 Vue、React、原生 JavaScript 或任何其他框架都是通用的。
+[`mitt`](https://www.npmjs.com/package/mitt) 是一个简单而强大的 JavaScript 事件总线库，用于在应用程序的不同部分之间进行事件通信。对于 Vue、React、原生 JavaScript 或任何其他框架都是通用的。
 
 使用 npm 安装它
 

@@ -1,5 +1,5 @@
 # 状态管理 Pinia
-在 Vue3 中，Pinia 作为新的推荐方案来代替 Vuex。与 Vuex 相比，Pinia 不仅提供了一个更简单的 API，也提供了符合组合式 API 风格的 API
+在 Vue3 中，[Pinia](https://pinia.vuejs.org/zh) 作为新的状态管理工具来代替 [Vuex](https://vuex.vuejs.org/zh/)。与 Vuex 相比，Pinia 不仅提供了一个更简单的 API，也提供了符合组合式 API 风格的 API
 
 ## 开始使用
 

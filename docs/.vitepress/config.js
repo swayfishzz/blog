@@ -24,8 +24,11 @@ export default {
       '/blog/': blogSidebar,
       '/other/': otherSidebar,
     },
-    outline: 'deep', // 右侧大纲，深度显示
-    outlineTitle: '目录', // 右侧大纲文本
+    // 右侧大纲
+    outline: {
+      level: 'deep', // 显示的目录层级
+      label: '目录', // 显示在 outline 上的标题
+    },
     sidebarMenuLabel: '文章列表', // 移动端 左侧边栏收起时，显示的文本
     returnToTopLabel: '回顶部 ↑', // 移动端 点击大纲时，回顶部按钮的文本
     docFooter: {
@@ -35,5 +38,6 @@ export default {
     // 开启本地搜索
     search: { provider: 'local' }
   },
+  externalLinkIcon: true, // 外部链接旁显示图标
   ignoreDeadLinks: 'localhostLinks' // 忽略为localhost类型的无效连接
 }

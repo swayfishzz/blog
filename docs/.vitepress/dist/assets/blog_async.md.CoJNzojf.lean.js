@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.CuqwmWrD.js";const y=JSON.parse('{"title":"异步编程","description":"","frontmatter":{},"headers":[],"relativePath":"blog/async.md","filePath":"blog/async.md"}'),h={name:"blog/async.md"},l=n("",56),t=[l];function p(k,e,r,E,d,g){return a(),i("div",null,t)}const c=s(h,[["render",p]]);export{y as __pageData,c as default};

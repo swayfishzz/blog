@@ -1,6 +1,6 @@
 # Vue3 路由管理
 
-使用 Vue Router 实现前端路由，它是 Vue.js 官方推荐的路由管理器
+使用 [Vue Router](https://router.vuejs.org/zh/) 实现前端路由，它是 Vue.js 官方推荐的路由管理器
 
 ## 基本使用
 

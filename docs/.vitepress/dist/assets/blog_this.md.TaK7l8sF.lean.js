@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.CuqwmWrD.js";const g=JSON.parse('{"title":"this","description":"","frontmatter":{},"headers":[],"relativePath":"blog/this.md","filePath":"blog/this.md"}'),t={name:"blog/this.md"},h=n("",22),l=[h];function e(p,k,d,o,r,E){return a(),i("div",null,l)}const y=s(t,[["render",e]]);export{g as __pageData,y as default};

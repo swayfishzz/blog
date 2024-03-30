@@ -5,11 +5,12 @@ export default [
     items: [
       { text: 'DOM 操作', link: '/blog/dom' },
       { text: '事件处理', link: '/blog/event' },
-      { text: '拖拽 API', link: '/blog/draggable' }
+      { text: '拖拽 API', link: '/blog/draggable' },
+      { text: 'Observer', link: '/blog/observer' },
     ]
   },
   {
-    text: 'JS',
+    text: 'ECMAScript',
     collapsed: false,
     items: [
       { text: 'this', link: '/blog/this' },
