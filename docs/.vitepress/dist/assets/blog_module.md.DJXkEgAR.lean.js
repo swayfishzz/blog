@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as e}from"./chunks/framework.CAAHRUi7.js";const E=JSON.parse('{"title":"模块化","description":"","frontmatter":{},"headers":[],"relativePath":"blog/module.md","filePath":"blog/module.md"}'),t={name:"blog/module.md"},l=e("",82),n=[l];function p(h,k,d,o,r,c){return a(),i("div",null,n)}const y=s(t,[["render",p]]);export{E as __pageData,y as default};

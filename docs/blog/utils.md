@@ -29,7 +29,7 @@ getRandom(0, 10) // 9
 
 ```js
 /* 判断一个值是否为空 */
-const isEmpty = (value) => {
+const isEmpty = value => {
   if (value === null || typeof value === 'undefined') {
     return true
   }
@@ -53,7 +53,7 @@ const isEmpty = (value) => {
 
 ```js
 /* 判断一个值是否不为空 */
-const isNotEmpty = (value) => !isEmpty(value)
+const isNotEmpty = value => !isEmpty(value)
 ```
 
 ### 深拷贝
@@ -62,7 +62,7 @@ const isNotEmpty = (value) => !isEmpty(value)
 
 ```js
 /* 深拷贝 */
-const deepClone = (value) => {
+const deepClone = value => {
   if (value === null || typeof value !== 'object') {
     return value
   }
@@ -101,7 +101,7 @@ console.log(2) // 两秒钟后，输出 2
 
 ```js
 const sleep = (duration = 500) => {
-  return new Promise((resolve) => setTimeout(resolve, duration))
+  return new Promise(resolve => setTimeout(resolve, duration))
 }
 ```
 
@@ -135,7 +135,7 @@ const parseQuery = (url = location.href) => {
 示例：
 
 ```js
-const url = 'http://example.com/path?key1=value1&key2=value2'
+const url = 'http://localhost:7777/path?key1=value1&key2=value2'
 const query = parseQuery(url)
 console.log(query) // { key1: 'value1', key2: 'value2' }
 ```
@@ -263,7 +263,7 @@ const uniqueByProp = (arr = [], key = 'id') => {
   if (arr.length === 0) return
   let list = []
   const map = {}
-  arr.forEach((item) => {
+  arr.forEach(item => {
     if (!map[item[key]]) {
       map[item[key]] = item
     }
@@ -313,7 +313,7 @@ console.log(id) // 02ca0781-fdcf-4b86-b6e4-3e01adfbc978
 ### 滚动到指定元素位置
 
 ```js
-const smoothScroll = (element) => {
+const smoothScroll = element => {
   document.querySelector(element).scrollIntoView({
     behavior: 'smooth',
   })
@@ -324,4 +324,31 @@ const smoothScroll = (element) => {
 
 ```js
 smoothScroll('#container') // 平滑滚动至 #container 元素
+```
+
+### 按比率混合颜色
+
+类似 `scss` 的 `mix` 函数。
+
+```js
+const blendColors = (color1, color2, ratio) => {
+  ratio = Math.max(0, Math.min(1, ratio)) // Clamp ratio between 0 and 1
+  const hex = c => {
+    const hex = c.toString(16)
+    return hex.length == 1 ? '0' + hex : hex
+  }
+  const r = Math.ceil(parseInt(color1.substring(1, 3), 16) * ratio + parseInt(color2.substring(1, 3), 16) * (1 - ratio))
+  const g = Math.ceil(parseInt(color1.substring(3, 5), 16) * ratio + parseInt(color2.substring(3, 5), 16) * (1 - ratio))
+  const b = Math.ceil(parseInt(color1.substring(5, 7), 16) * ratio + parseInt(color2.substring(5, 7), 16) * (1 - ratio))
+  return `#${hex(r)}${hex(g)}${hex(b)}`
+}
+```
+
+示例
+
+```js
+const color1 = '#FF0000' // Red
+const color2 = '#0000FF' // Blue
+const blendedColor = blendColors(color1, color2, 0.5) // Mix with a 50/50 ratio
+console.log(blendedColor) // Output: "#800080" (Purple)
 ```

@@ -6,6 +6,35 @@ HTML5 提供了一些 Observer API，用于观察（或监视）特定的 DOM �
 
 MutationObserver 接口提供了监视对 DOM 树的更改。它可以观察到节点的增加、删除、属性的改变、文本内容的改变等。使用 MutationObserver 可以实现对 DOM 变化的监听。
 
+```js
+// 选择需要观察变动的节点
+const targetNode = document.getElementById('some-id')
+
+// 创建一个观察器实例并传入回调函数，回调将在观察到变动时执行
+const observer = new MutationObserver(mutationsList => {
+  for (const mutation of mutationsList) {
+    switch (mutation.type) {
+      case 'childList':
+        console.log('一个子节点被新增或删除了')
+        break
+      case 'attributes':
+        console.log(`${mutation.attributeName} 属性被修改`)
+        break
+    }
+  }
+})
+
+// 以上述配置开始观察目标节点
+observer.observe(targetNode, {
+  attributes: true, // 观察所有监听的节点属性值的变化
+  childList: true, // 监听 targetNode 的节点新增和删除
+  subtree: true, // 监听整个子树，包括子树中所有节点的属性
+})
+
+// 停止观察
+observer.disconnect()
+```
+
 ## IntersectionObserver
 
 IntersectionObserver 接口用于异步监视目标元素与祖先元素或顶级文档视窗(viewport)的交集变化。它可以用于实现懒加载（lazy loading）等功能，以提高性能。
@@ -43,6 +72,7 @@ IntersectionObserver 接口用于异步监视目标元素与祖先元素或顶�
 ### 触底加载更多
 
 ::: code-group
+
 ```html [html]
 <ul>
   <li>列表项</li>
@@ -81,12 +111,13 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(footer)
 
 async function loadMore() {
-  const data = await fetch('http://example.com/list').then(res => res.json())
+  const data = await fetch('/api/list').then(res => res.json())
   for (const item of data) {
     list.innerHTML += `<li>${item}</li>`
   }
 }
 ```
+
 :::
 
 ## ResizeObserver

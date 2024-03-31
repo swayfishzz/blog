@@ -10,7 +10,7 @@ JavaScript 历史上一直没有模块（module）体系，无法将一个大程
 
 **CommonJS：** CommonJS 提出了模块的定义、导出和导入规范，Node.js 就是基于 CommonJS 模块系统构建的。
 
-**AMD：** AMD 是为了解决在浏览器端异步加载模块的问题而产生的标准，随着 ESM 的问世，已逐渐式微。RequireJS 是一个实现 AMD 的著名库。
+**AMD：** AMD 是为了解决在浏览器端异步加载模块的问题而产生的标准，随着 ES Module 的问世，已逐渐式微。RequireJS 是一个实现 AMD 的著名库。
 
 **ESM：** ESM（ECMAScript Module）是 es6 引入的官方的模块系统。是项目开发中最为常用的模块化标准
 
@@ -60,7 +60,7 @@ user.sayHello()
 
 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。
 
-## ESM
+## ES Module
 
 ESM（ECMAScript Module）是 ECMAScript 在语言层面实现的模块化标准，不同于其它的社区标准
 
@@ -205,7 +205,7 @@ console.log(import.meta.url)
 
 Node.js 环境中，`import.meta.url`返回的总是本地路径，即`file:URL`协议的字符串，比如`file:///d:/Code/foo.mjs`。
 
-## 加载 ESM
+## 加载 ES Module
 
 ### 浏览器
 
@@ -228,7 +228,7 @@ Node.js 环境中，`import.meta.url`返回的总是本地路径，即`file:URL`
 
 `defer`是**渲染完再执行**，`async`是**下载完就执行**。如果有多个`defer`脚本，会按照它们在页面出现的顺序加载，而多个`async`脚本是不能保证加载顺序的。
 
-**加载 ESM 模块**
+**加载 ES Module 模块**
 
 需要将 `<script>` 标签添加 `type="module"` 属性
 
@@ -238,13 +238,13 @@ Node.js 环境中，`import.meta.url`返回的总是本地路径，即`file:URL`
 
 对于带有`type="module"`的`<script>`，都是异步加载，不会造成堵塞浏览器，即等到整个页面渲染完，再执行模块脚本，等同于打开了`<script>`标签的`defer`属性。
 
-也可以为 ESM 模块开启 `async` 属性，这时只要加载完成，渲染引擎就会中断渲染立即执行。执行完成后，再恢复渲染。使用了`async`属性，模块就不会按照在页面出现的顺序执行
+也可以为 ES Module 模块开启 `async` 属性，这时只要加载完成，渲染引擎就会中断渲染立即执行。执行完成后，再恢复渲染。使用了`async`属性，模块就不会按照在页面出现的顺序执行
 
 ### Node.js
 
-CommonJS 模块是 Node.js 专用的模块化标准，与 ESM 模块不兼容。
+CommonJS 模块是 Node.js 专用的模块化标准，与 ES Module 模块不兼容。
 
-从 Node.js v13.2 版本开始，Node.js 开始支持 ESM，它要求 ESM 模块采用 `.mjs` 文件后缀名
+从 Node.js v13.2 版本开始，Node.js 开始支持 ESM，它要求 ES Module 模块采用 `.mjs` 文件后缀名
 
 ```js
 // foo.mjs
@@ -259,7 +259,7 @@ export const name = 'Tom'
 }
 ```
 
-- 设置为 `module` 后，该项目的 JS 脚本，就被解释成 ESM 模块，而无需设置 `.mjs` 文件后缀名。
+- 设置为 `module` 后，该项目的 JS 脚本，就被解释成 ES Module 模块，而无需设置 `.mjs` 文件后缀名。
 
   此时，如果要使用 CommonJS 标准，需要将文件后缀名改为 `.cjs`
 

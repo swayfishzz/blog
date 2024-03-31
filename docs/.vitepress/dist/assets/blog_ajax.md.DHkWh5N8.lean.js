@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.CAAHRUi7.js";const c=JSON.parse('{"title":"AJAX","description":"","frontmatter":{},"headers":[],"relativePath":"blog/ajax.md","filePath":"blog/ajax.md"}'),h={name:"blog/ajax.md"},l=n("",33),e=[l];function t(p,k,r,E,d,o){return a(),i("div",null,e)}const y=s(h,[["render",t]]);export{c as __pageData,y as default};

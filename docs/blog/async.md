@@ -6,7 +6,7 @@
 
 ## Promise
 
-Promise 是 JavaScript 中用于处理异步操作的一种机制，Promise 最早起源于社区，该社区制定了一套规范，名为 [Promise A+规范](https://promisesaplus.com/)，随后 ES6 中根据该规范设计了 [Promise 构造函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)。它提供了更清晰、更可维护的方式来处理异步代码。Promise 可以表示一个异步操作的状态，可以是未完成、已完成或失败，以及异步操作的结果。
+Promise 是 JavaScript 中用于处理异步操作的一种机制，Promise 最早起源于社区，该社区制定了一套 Promise A+ 规范，随后 ES6 设计了 [Promise 构造函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)。它提供了更清晰、更可维护的方式来处理异步代码。Promise 可以表示一个异步操作的状态，可以是未完成、已完成或失败，以及异步操作的结果。
 
 ### 基本使用
 
@@ -140,12 +140,12 @@ async 用于将函数声明为异步函数，返回一个 Promise 对象，该 P
 
 ```js
 async function fetchData() {
-  const data = await fetch('https://example.com/api/data')
+  const data = await fetch('/api')
   return await data.json()
 }
 // 也可以使用箭头函数
 const fetchMoreData = async () => {
-  const data = await fetch('https://example.com/api/data')
+  const data = await fetch('/api')
   return await data.json()
 }
 ```
@@ -200,13 +200,13 @@ window.addEventListener('unhandledrejection', (event) => {
 function fetchData(url, callback) {
   // 模拟异步操作，例如发起网络请求
   setTimeout(() => {
-    const data = '这是从服务器获取的数据'
+    const data = { msg: 'hello '}
     callback(data)
   }, 1000)
 }
 
 // 调用异步函数，传递回调函数
-fetchData('https://example.com/api/data', function (data) {
-  console.log(data) // '这是从服务器获取的数据'
+fetchData('/api', function (data) {
+  console.log(data) // { msg: 'hello '}
 })
 ```

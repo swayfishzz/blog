@@ -1,5 +1,5 @@
-import blogSidebar from './blogSidebar'
-import otherSidebar from './otherSidebar'
+import blog from './blog'
+import other from './other'
 
 export default {
   title: 'zZ的博客', //站点标题
@@ -21,8 +21,8 @@ export default {
     ],
     // 左侧边栏配置
     sidebar: {
-      '/blog/': blogSidebar,
-      '/other/': otherSidebar,
+      '/blog/': blog,
+      '/other/': other,
     },
     // 右侧大纲
     outline: {

@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as i,a4 as n}from"./chunks/framework.CAAHRUi7.js";const F=JSON.parse('{"title":"使用 nvm 管理 node","description":"","frontmatter":{},"headers":[],"relativePath":"blog/nvm.md","filePath":"blog/nvm.md"}'),e={name:"blog/nvm.md"},t=n("",27),h=[t];function l(p,k,d,o,r,c){return i(),a("div",null,h)}const v=s(e,[["render",l]]);export{F as __pageData,v as default};

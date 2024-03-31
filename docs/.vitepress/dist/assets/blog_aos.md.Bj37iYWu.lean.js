@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n,a5 as t}from"./chunks/framework.CuqwmWrD.js";const c=JSON.parse('{"title":"AOS","description":"","frontmatter":{},"headers":[],"relativePath":"blog/aos.md","filePath":"blog/aos.md"}'),h={name:"blog/aos.md"},l=n("",20),k=[l];function p(e,E,d,r,g,y){return a(),i("div",null,k)}const F=s(h,[["render",p]]);export{c as __pageData,F as default};

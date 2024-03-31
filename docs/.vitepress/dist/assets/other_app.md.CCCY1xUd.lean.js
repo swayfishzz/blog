@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as i,a4 as r}from"./chunks/framework.CuqwmWrD.js";const u=JSON.parse('{"title":"工具软件推荐","description":"","frontmatter":{},"headers":[],"relativePath":"other/app.md","filePath":"other/app.md"}'),t={name:"other/app.md"},n=r("",34),l=[n];function o(s,p,h,c,d,g){return i(),a("div",null,l)}const f=e(t,[["render",o]]);export{u as __pageData,f as default};
