@@ -199,6 +199,38 @@ const throttledFn = throttle(function () {
 element.addEventListener('scroll', throttledFn)
 ```
 
+### 求两数组交集、并集、差集
+
+```js
+/**
+ * 求两个数组的交集
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @example
+ *  crossArr([1, 2, 3], [4, 5, 6]) -> [3]
+ */
+const crossArr = (arr1, arr2) => Array.from(new Set(arr1.filter(item => arr2.includes(item))))
+
+/**
+ * 求两个数组的并集
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @example
+ *  crossArr([1, 2, 3], [4, 5, 6]) -> [ 1, 2, 3, 4, 5 ]
+ */
+const unionArr = (arr1, arr2) => Array.from(new Set([...arr1, ...arr2]))
+
+/**
+ * 求两个数组的差集（没有相交的部分）
+ * @param {Array} arr1
+ * @param {Array} arr2
+ * @example
+ *  crossArr([1, 2, 3], [4, 5, 6]) -> [ 1, 2, 4, 5 ]
+ */
+const diffArr = (arr1, arr2) =>
+  Array.from(new Set(unionArr(arr1, arr2).filter(item => !crossArr(arr1, arr2).includes(item))))
+```
+
 ### 提取对象指定属性
 
 ```js

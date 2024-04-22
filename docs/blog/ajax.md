@@ -4,7 +4,7 @@ Ajax（Asynchronous JavaScript and XML）允许在不重新加载整个页面的
 
 ## Fetch
 
-[Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/fetch) 是随 ES6 出现的新 api，它基于 Promise 形式进行网络请求，且配置非常简单。
+[Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/fetch) 是 HTML5 中出现的新 api，用于实现 Ajax 交互，它基于 Promise 形式进行网络请求，且配置非常简单。
 
 示例：
 

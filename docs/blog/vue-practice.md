@@ -81,10 +81,10 @@ instance.interceptors.response.use(
     // 此 res 为后端手动封装的消息格式，开发时需以自己项目决定
     const res = response.data
     if (res.code !== 200) {
-      ElMessage.error(res.msg ?? '请求失败')
+      ElMessage.error(res.msg ?? '请求失败！')
       return Promise.reject(res)
     }
-    return response
+    return res
   },
   error => {
     ElMessage.error(error.msg ?? '请求失败！')
@@ -200,6 +200,76 @@ onMounted(() => {
       // 添加到新的位置
       tableData.splice(event.newIndex, 0, moveRow)
     },
+  })
+})
+</script>
+```
+
+## ElementPlus 动态修改主题色
+
+ElementPlus 主题色是由一个主色和几个辅色组成，辅色用于元素 hover、active、disabled 等效果。在控制台可以看到它们的 css 变量名和值。
+
+```css
+:root {
+  --el-color-primary: #409eff;
+  --el-color-primary-light-3: #79bbff;
+  --el-color-primary-light-5: #a0cfff;
+  --el-color-primary-light-7: #c6e2ff;
+  --el-color-primary-light-8: #d9ecff;
+  --el-color-primary-light-9: #ecf5ff;
+  --el-color-primary-dark-2: #337ecc;
+}
+```
+
+通过设置 css 变量改变主题色，用函数生成辅色变量，即可完成修改主题色。
+
+其中，辅色中 light 代表与白色混合，dark 代表与黑色混合，后面的数字就代表需要混合的比率。
+
+按比率混合颜色的函数：
+
+```js
+/**
+ * 按比率混合两种颜色，类似 sass 的 mix 函数
+ * @param {String} color1 十六进制颜色
+ * @param {String} color2 十六进制颜色
+ * @param {Number} ratio 比例 0-1
+ * @returns {String} 混合后的十六进制颜色
+ */
+export const blendColors = (color1, color2, ratio) => {
+  ratio = Math.max(0, Math.min(1, ratio))
+  const hex = c => {
+    const hex = c.toString(16)
+    return hex.length == 1 ? '0' + hex : hex
+  }
+  const r = Math.ceil(parseInt(color1.substring(1, 3), 16) * ratio + parseInt(color2.substring(1, 3), 16) * (1 - ratio))
+  const g = Math.ceil(parseInt(color1.substring(3, 5), 16) * ratio + parseInt(color2.substring(3, 5), 16) * (1 - ratio))
+  const b = Math.ceil(parseInt(color1.substring(5, 7), 16) * ratio + parseInt(color2.substring(5, 7), 16) * (1 - ratio))
+  return `#${hex(r)}${hex(g)}${hex(b)}`
+}
+```
+
+示例代码：
+
+```vue
+<template>
+  <el-color-picker v-model="primaryColor" />
+</template>
+
+<script setup>
+import { ref, watch } from 'vue'
+import { blendColors } from '@/utils'
+
+const primaryColor = ref('#409eff') // 默认项目主题色
+
+watch(primaryColor, color => {
+  // 修改主题色，将变量修改到 body 上，优先级大于 :root 选择器，ElementPlus 组件就会使用 body 中的变量
+  document.body.setProperty('--el-color-primary', color)
+  // 修改 dark 辅色
+  document.body.setProperty('--el-color-primary-dark-2', blendColors('#000000', color, 0.2))
+  // 循环修改剩余的 light 辅色
+  ;[3, 5, 7, 8, 9].forEach(level => {
+    const computedColor = blendColors('#ffffff', color, level / 10)
+    document.body.setProperty('--el-color-primary-light-' + level, computedColor)
   })
 })
 </script>
