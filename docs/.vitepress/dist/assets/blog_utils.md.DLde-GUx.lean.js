@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as h}from"./chunks/framework.CAAHRUi7.js";const F=JSON.parse('{"title":"工具函数","description":"","frontmatter":{},"headers":[],"relativePath":"blog/utils.md","filePath":"blog/utils.md"}'),n={name:"blog/utils.md"},k=h("",69),l=[k];function p(t,e,E,r,d,g){return a(),i("div",null,l)}const c=s(n,[["render",p]]);export{F as __pageData,c as default};

@@ -145,13 +145,13 @@ console.log(query) // { key1: 'value1', key2: 'value2' }
 防抖的核心思想是，在一连串触发事件后，只有当事件停止一段时间后，才执行相应的函数。常用于处理频繁触发的事件（例如窗口大小调整、搜索建议等）。
 
 ```js
-const debounce = (fn, duration = 100) => {
-  let timer = null
+const debounce = (func, delay) => {
+  let timerId
   return (...args) => {
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      fn.apply(this, args)
-    }, duration)
+    clearTimeout(timerId)
+    timerId = setTimeout(() => {
+      func(...args)
+    }, delay)
   }
 }
 ```
@@ -173,15 +173,13 @@ element.addEventListener('input', debouncedFn)
 节流的核心思想是，无论事件触发多频繁，都只在固定时间间隔内执行一次函数。常用于需要限制函数执行速率的情况（例如滚动事件、按钮点击等）。
 
 ```js
-const throttle = (fn, duration = 50) => {
-  let isThrottled = false
-  return function (...args) {
-    if (!isThrottled) {
-      fn.apply(this, args)
-      isThrottled = true
-      setTimeout(() => {
-        isThrottled = false
-      }, duration)
+const throttle = (func, interval) => {
+  let lastExecTime = 0
+  return (...args) => {
+    const now = Date.now()
+    if (now - lastExecTime >= interval) {
+      func(...args)
+      lastExecTime = now
     }
   }
 }
@@ -207,7 +205,7 @@ element.addEventListener('scroll', throttledFn)
  * @param {Array} arr1
  * @param {Array} arr2
  * @example
- *  crossArr([1, 2, 3], [4, 5, 6]) -> [3]
+ *  crossArr([1, 2, 3], [3, 4, 5]) -> [3]
  */
 const crossArr = (arr1, arr2) => Array.from(new Set(arr1.filter(item => arr2.includes(item))))
 
@@ -216,7 +214,7 @@ const crossArr = (arr1, arr2) => Array.from(new Set(arr1.filter(item => arr2.inc
  * @param {Array} arr1
  * @param {Array} arr2
  * @example
- *  crossArr([1, 2, 3], [4, 5, 6]) -> [ 1, 2, 3, 4, 5 ]
+ *  crossArr([1, 2, 3], [3, 4, 5]) -> [ 1, 2, 3, 4, 5 ]
  */
 const unionArr = (arr1, arr2) => Array.from(new Set([...arr1, ...arr2]))
 
@@ -225,7 +223,7 @@ const unionArr = (arr1, arr2) => Array.from(new Set([...arr1, ...arr2]))
  * @param {Array} arr1
  * @param {Array} arr2
  * @example
- *  crossArr([1, 2, 3], [4, 5, 6]) -> [ 1, 2, 4, 5 ]
+ *  crossArr([1, 2, 3], [3, 4, 5]) -> [ 1, 2, 4, 5 ]
  */
 const diffArr = (arr1, arr2) =>
   Array.from(new Set(unionArr(arr1, arr2).filter(item => !crossArr(arr1, arr2).includes(item))))
@@ -383,4 +381,55 @@ const color1 = '#FF0000' // Red
 const color2 = '#0000FF' // Blue
 const blendedColor = blendColors(color1, color2, 0.5) // Mix with a 50/50 ratio
 console.log(blendedColor) // Output: "#800080" (Purple)
+```
+
+### 将文本内容下载为 .txt 文件
+
+通过使用 `Blob` 对象和创建一个下载链接来实现文件的下载。
+
+```js
+/**
+ * 将文本内容下载为 .txt 文件
+ * @param {String} text 文本内容
+ * @param {String} [filename] 文件名
+ */
+const downloadTxt = (text, filename = 'file') => {
+  const blob = new Blob([text], { type: 'text/plain' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  URL.revokeObjectURL(url)
+  document.body.removeChild(a)
+}
+
+// 示例
+downloadTxt('天气不错', '日记')
+```
+
+同理，如果要下载 json 文件只需配置 `Blob` 对象的 `type` 为 `application/json` 即可。
+
+```js {2}
+const downloadJson = (json, filename = 'file') => {
+  const blob = new Blob([JSON.stringify(json, null, 2)], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  URL.revokeObjectURL(url)
+  document.body.removeChild(a)
+}
+
+// 示例
+const userInfo = {
+  name: '张三',
+  age: 18,
+  hobbies: ['唱', '跳', 'rap', '篮球'],
+}
+
+downloadJson(userInfo, '用户信息')
 ```
