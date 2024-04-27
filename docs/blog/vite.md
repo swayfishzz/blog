@@ -102,11 +102,11 @@ export default {
         target: 'https://www.test.com', // 要进行代理的域名
         changeOrigin: true, // 修改请求头中的 host 和 origin
         pathRewrite: {
-          '^/api2': '' // 将路径中的【/api2】重写为 ''
-        }
-      }
-    }
-  }
+          '^/api2': '', // 将路径中的【/api2】重写为 ''
+        },
+      },
+    },
+  },
 }
 ```
 
@@ -126,9 +126,9 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src') // 配置路径别名
-    }
-  }
+      '@': path.resolve(__dirname, 'src'), // 配置路径别名
+    },
+  },
 })
 ```
 
@@ -143,10 +143,10 @@ export default {
       // 配置 scss，也可以是 less、stylus
       scss: {
         // 添加全局的 Sass 变量、混入等
-        additionalData: '@import "@/styles/variables.scss";'
-      }
-    }
-  }
+        additionalData: '@import "@/styles/variables.scss";',
+      },
+    },
+  },
 }
 ```
 
@@ -160,21 +160,19 @@ export default {
     rollupOptions: {
       output: {
         manualChunks: {
-          lodash: ['lodash']
-        }
-      }
-    }
-  }
+          lodash: ['lodash'],
+        },
+      },
+    },
+  },
 }
 ```
 
 ## 插件
 
-### 自动引入依赖
+### unplugin-auto-import
 
 在使用 vue3 进行开发时，总是需要引入 `ref`、`reactive`、`onMounted` 等函数，可以通过 `unplugin-auto-import` 库自动引入 vue 相关的依赖。
-
-使用 npm 进行安装
 
 ```bash
 npm i unplugin-auto-import -D
@@ -187,7 +185,7 @@ npm i unplugin-auto-import -D
 import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
-  plugins: [AutoImport({ imports: ['vue', 'vue-router'] })]
+  plugins: [AutoImport({ imports: ['vue', 'vue-router'] })],
 })
 ```
 
@@ -203,3 +201,54 @@ onMounted(() => {
 const route = useRoute()
 </script>
 ```
+
+### rollup-plugin-visualizer
+
+以图表的形式展示打包结果中各种依赖的体积，方便对项目进行打包优化。
+
+```
+npm i rollup-plugin-visualizer -D
+```
+
+在 vite.config.js 中配置
+
+```js
+import { visualizer } from 'rollup-plugin-visualizer'
+
+export default {
+  plugins: [visualizer()],
+}
+```
+
+打包后，会在项目根目录生成 stats.html 文件，打开即可查看模块体积情况。
+
+### rollup-plugin-external-globals
+
+配置不打包的模块对应的全局变量名称。
+
+该插件经常在需要使用 CDN 代替某些第三方库时使用，见 [网络/CDN](/blog/cdn)
+
+```bash
+npm i rollup-plugin-external-globals -D
+```
+
+在 vite.config.js 中配置
+
+```js
+import externalGlobals from 'rollup-plugin-external-globals'
+
+export default {
+  build: {
+    rollupOptions: {
+      externals: ['lodash'], // 无需打包的模块
+      externalGlobals({
+        lodash: '_', // 告诉 rollup，lodash 模块使用全局变量 _ 替代
+      })
+    }
+  }
+}
+```
+
+- 属性名为模块名称，即 package.json 中对应的名称
+
+- 属性值为该模块对外暴露的全局变量名

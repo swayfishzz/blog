@@ -16,6 +16,22 @@ getRandom(0, 10) // 2
 getRandom(0, 10) // 9
 ```
 
+### 获取随机颜色
+
+```js
+/**
+ * 获取随机颜色
+ * @param {Boolean} isRGB rgb格式
+ */
+const getRandomColor = isRGB => {
+  if (isRGB) {
+    return `rgb(${getRandom(0, 256)},${getRandom(0, 256)},${getRandom(0, 256)})`
+  } else {
+    return '#' + parseInt(Math.random() * 0xffffff).toString(16).padStart(6, '0')
+  }
+}
+```
+
 ### 判断数据是否为空
 
 如果该值是以下中的一个，即被判定为空：
@@ -246,6 +262,31 @@ pick(foo, 'a', 'b') // { a: 1, b: 2 }
 pick(foo, 'a', 'c') // { a: 1, c: 3 }
 ```
 
+### 格式化尺寸单位
+
+```js
+/**
+ * 格式化尺寸单位
+ * @param {Number} kb
+ * @returns {String}
+ */
+const formatSize = kb => {
+  const units = ['KB', 'MB', 'GB', 'TB', 'PB']
+  let unitIndex = 0
+  while (kb >= 1024 && unitIndex < units.length - 1) {
+    kb /= 1024
+    unitIndex++
+  }
+  return `${kb.toFixed(2)} ${units[unitIndex]}`
+}
+```
+
+示例
+
+```js
+console.log(formatSize(556677)) // 543.63 MB
+```
+
 ### 模糊搜索
 
 ```js
@@ -286,20 +327,13 @@ console.log(fuzzyQuery(users, '张', 'name'))
 ```js
 /**
  * @param {Array} arr 要去重的数组
- * @param {String} key 根据该属性去重
+ * @param {String} [key="id"] 根据该属性去重
  * @returns {Array}
  */
-const uniqueByProp = (arr = [], key = 'id') => {
-  if (arr.length === 0) return
-  let list = []
-  const map = {}
-  arr.forEach(item => {
-    if (!map[item[key]]) {
-      map[item[key]] = item
-    }
-  })
-  list = Object.values(map)
-  return list
+const uniqueByProp = (arr, key = 'id') => {
+  if (!arr?.length) return []
+  const values = []
+  return arr.filter(e => !values.includes(e[key]) && values.push(e[key]))
 }
 ```
 

@@ -2,6 +2,11 @@
 
 Ajax（Asynchronous JavaScript and XML）允许在不重新加载整个页面的情况下，通过异步方式与服务器交换数据。
 
+浏览器提供了两种 api 用户实现 Ajax 交互：
+
+- fetch
+- XMLHttpRequest
+
 ## Fetch
 
 [Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/fetch) 是 HTML5 中出现的新 api，用于实现 Ajax 交互，它基于 Promise 形式进行网络请求，且配置非常简单。
@@ -147,9 +152,9 @@ fetch('/api', {
 })
 ```
 
-## XHR
+## XMLHttpRequest
 
-[XHR（XMLHttpRequest）](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 是最早用于实现 Ajax 的技术之一。现在已经不推荐使用它来实现 ajax 交互，因为它的操作过程较为繁琐，推荐使用 Fetch
+[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 是最早用于实现 Ajax 的技术之一。现在已经不推荐使用它来实现 ajax 交互，因为它的操作过程较为繁琐，推荐使用 Fetch
 
 ```js
 // 创建 XMLHttpRequest 对象
@@ -169,4 +174,4 @@ xhr.onreadystatechange = () => {
 }
 ```
 
-XHR 进行网络请求的操作过程过于繁琐，通常会使用第三方库来完成网络通信，比如早期的 jQuery.ajax。
+XMLHttpRequest 进行网络请求的操作过程过于繁琐，通常会使用第三方库来完成网络通信，比如早期的 jQuery.ajax。

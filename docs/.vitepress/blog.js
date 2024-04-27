@@ -28,7 +28,7 @@ export default [
       // { text: 'HTTPS', link: '/blog/https' },
       { text: 'AJAX', link: '/blog/ajax' },
       // { text: 'CORS', link: '/blog/cors' },
-      // { text: 'CDN', link: '/blog/cdn' },
+      { text: 'CDN', link: '/blog/cdn' },
       // { text: 'Cookie & Session', link: '/blog/cookie-session' },
       // { text: '网络安全', link: '/blog/network-security' },
       // { text: '性能优化', link: '/blog/network-performance-optimization' },
