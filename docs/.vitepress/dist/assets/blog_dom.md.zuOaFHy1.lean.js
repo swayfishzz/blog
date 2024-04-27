@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as t}from"./chunks/framework.DwILdc5J.js";const c=JSON.parse('{"title":"DOM 操作","description":"","frontmatter":{},"headers":[],"relativePath":"blog/dom.md","filePath":"blog/dom.md"}'),n={name:"blog/dom.md"},h=t("",52),l=[h];function e(k,p,d,E,r,o){return a(),i("div",null,l)}const y=s(n,[["render",e]]);export{c as __pageData,y as default};

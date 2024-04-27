@@ -1,5 +1,6 @@
 import blog from './blog'
 import other from './other'
+import { searchEngines } from './utils/statistics'
 
 export default {
   title: 'zZ的博客', //站点标题
@@ -9,11 +10,11 @@ export default {
   },
   themeConfig: {
     siteTitle: 'zZ的博客', // 导航栏文字
-    logo: '/logo.png', // 网站 logo
+    logo: '/assets/logo.png', // 网站 logo
     // 社交账户链接
     // socialLinks: [{ icon: 'github', link: 'https://github.com/swayfishzz' }],
     // 添加 favicon
-    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+    head: [['link', { rel: 'icon', href: '/favicon.ico' }], ...searchEngines],
     // 导航栏配置
     nav: [
       { text: '博客', link: '/blog/dom' },
@@ -33,11 +34,11 @@ export default {
     returnToTopLabel: '回顶部 ↑', // 移动端 点击大纲时，回顶部按钮的文本
     docFooter: {
       prev: '上一篇', // 文字末尾 上篇文章按钮的文本
-      next: '下一篇' // 文字末尾 上篇文章按钮的文本
+      next: '下一篇', // 文字末尾 上篇文章按钮的文本
     },
     // 开启本地搜索
-    search: { provider: 'local' }
+    search: { provider: 'local' },
   },
   externalLinkIcon: true, // 外部链接旁显示图标
-  ignoreDeadLinks: 'localhostLinks' // 忽略为localhost类型的无效连接
+  ignoreDeadLinks: 'localhostLinks', // 忽略为localhost类型的无效连接
 }

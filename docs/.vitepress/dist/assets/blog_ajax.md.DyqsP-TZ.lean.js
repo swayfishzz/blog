@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DwILdc5J.js";const c=JSON.parse('{"title":"AJAX","description":"","frontmatter":{},"headers":[],"relativePath":"blog/ajax.md","filePath":"blog/ajax.md"}'),l={name:"blog/ajax.md"},h=n("",35),e=[h];function t(p,k,r,E,d,o){return a(),i("div",null,e)}const y=s(l,[["render",t]]);export{c as __pageData,y as default};

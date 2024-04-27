@@ -175,9 +175,9 @@ app.listen(3000, () => {
     <td>含水印（右下角）</td>
   </tr>
   <tr>
-    <td><img src="/md/origin.png" alt="origin" style="zoom: 50%; object-fit: contain" /></td>
-    <td><img src="/md/watermark.png" alt="watermark" style="zoom: 67%; object-fit: contain" /></td>
-    <td><img src="/md/target.png" alt="target" style="zoom: 50%; object-fit: contain" /></td>
+    <td><img src="/assets/origin.png" alt="origin" style="zoom: 50%; object-fit: contain" /></td>
+    <td><img src="/assets/watermark.png" alt="watermark" style="zoom: 67%; object-fit: contain" /></td>
+    <td><img src="/assets/target.png" alt="target" style="zoom: 50%; object-fit: contain" /></td>
   </tr>
 </table>
 

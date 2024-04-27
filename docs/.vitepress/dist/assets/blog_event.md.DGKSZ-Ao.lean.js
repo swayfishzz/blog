@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as e}from"./chunks/framework.CAAHRUi7.js";const g=JSON.parse('{"title":"事件处理","description":"","frontmatter":{},"headers":[],"relativePath":"blog/event.md","filePath":"blog/event.md"}'),n={name:"blog/event.md"},l=e("",65),t=[l];function h(p,k,d,o,r,E){return a(),i("div",null,t)}const y=s(n,[["render",h]]);export{g as __pageData,y as default};

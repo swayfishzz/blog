@@ -13,7 +13,7 @@
 
 图示：
 
-<image src="/md/ContextMenuManager-example.png" />
+<image src="/assets/ContextMenuManager-example.png" />
 
 ### Snipaste
 
@@ -27,7 +27,7 @@
 
 图示：
 
-<image src="/md/Snipaste-example.png" />
+<image src="/assets/Snipaste-example.png" />
 
 ### Everything
 
@@ -35,7 +35,7 @@
 
 图示：
 
-<image src="/md/Everything-example.png" />
+<image src="/assets/Everything-example.png" />
 
 ### Geek
 
@@ -51,7 +51,7 @@
 
 图示：
 
-<image src="/md/Geek-example.png" />
+<image src="/assets/Geek-example.png" />
 
 ### DiskGenius
 
@@ -63,7 +63,7 @@
 
 图示：
 
-<image src="/md/DiskGenius-example.png" />
+<image src="/assets/DiskGenius-example.png" />
 
 ### ScreenToGif
 
@@ -76,4 +76,4 @@
 
 图示：
 
-<image src="/md/ScreenToGif-example.gif" />
+<image src="/assets/ScreenToGif-example.gif" />

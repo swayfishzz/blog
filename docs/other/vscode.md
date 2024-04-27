@@ -149,7 +149,7 @@ VS Code 有一个庞大的插件生态系统，可以根据需要选择安装插
 
 通过配置用户代码片段，可以在输入关键字时，编辑器自动补全，可以显著地提高开发的效率。
 
-<img src="/md/ajax-snippet.gif" alt="ajax-snippet" >
+<img src="/assets/ajax-snippet.gif" alt="ajax-snippet" >
 
 ## 目录别名提示(@)
 
@@ -175,8 +175,8 @@ VS Code 有一个庞大的插件生态系统，可以根据需要选择安装插
 
 下载 `Path Intellisense` 插件，并在 `settings.json` 中配置映射的目录。
 
-<img src="/md/path-intellisense.png" alt="path-intellisense">
+<img src="/assets/path-intellisense.png" alt="path-intellisense">
 
 添加以下配置
 
-<img src="/md/path-intellisense-setting.png" alt="path-intellisense-setting">
+<img src="/assets/path-intellisense-setting.png" alt="path-intellisense-setting">
