@@ -1,6 +1,5 @@
 import blog from './blog'
 import other from './other'
-import { searchEngines } from './utils/statistics'
 
 export default {
   title: 'zZ的博客', //站点标题
@@ -12,9 +11,9 @@ export default {
     siteTitle: 'zZ的博客', // 导航栏文字
     logo: '/assets/logo.png', // 网站 logo
     // 社交账户链接
-    // socialLinks: [{ icon: 'github', link: 'https://github.com/swayfishzz' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/swayfishzz/blog' }],
     // 添加 favicon
-    head: [['link', { rel: 'icon', href: '/favicon.ico' }], ...searchEngines],
+    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     // 导航栏配置
     nav: [
       { text: '博客', link: '/blog/dom' },

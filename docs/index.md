@@ -30,10 +30,10 @@ features:
     link: https://www.markdown.xyz
     linkText: Markdown
   - icon:
-      src: /assets/gitee.svg
+      src: /assets/github.svg
       width: 30
-    title: 通过 Gitee Pages 部署
-    details: Gitee Pages 是一个免费的静态网页托管服务，可以用来托管博客、项目官网等静态网页。
-    link: https://help.gitee.com/services/gitee-pages/intro
-    linkText: Gitee Pages
+    title: 通过 Github Pages 部署
+    details: Github Pages 是一个免费的静态网页托管服务，可以用来托管博客、项目官网等静态网页。
+    link: https://pages.github.com/
+    linkText: Github Pages
 ---
