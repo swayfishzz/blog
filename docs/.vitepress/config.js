@@ -9,9 +9,9 @@ export default {
   },
   themeConfig: {
     siteTitle: 'zZ的博客', // 导航栏文字
-    logo: '/assets/logo.png', // 网站 logo
+    logo: '/logo.png', // 网站 logo
     // 社交账户链接
-    socialLinks: [{ icon: 'github', link: 'https://github.com/swayfishzz/blog' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/swayfishzz/swayfishzz.github.io' }],
     // 添加 favicon
     head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     // 导航栏配置
