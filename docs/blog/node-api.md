@@ -219,7 +219,7 @@ console.log(path.normalize(p)) // D:\code\project\index.js
 
 ```javascript
 const url = 'https://www.example.com/path?key=value'
-const result = new URL(path)
+const result = new URL(url)
 
 console.log(result)
 // {

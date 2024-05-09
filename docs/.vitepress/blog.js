@@ -5,12 +5,13 @@ export default [
     items: [
       { text: 'DOM 操作', link: '/blog/dom' },
       { text: '事件处理', link: '/blog/event' },
-      { text: '拖拽 API', link: '/blog/draggable' },
       { text: 'Observer', link: '/blog/observer' },
+      // { text: '存储', link: '/blog/storage' },
+      // { text: '跨标签页通信', link: '/blog/multiple-tags' },
     ],
   },
   {
-    text: 'ECMAScript',
+    text: 'JavaScript',
     collapsed: false,
     items: [
       { text: 'this', link: '/blog/this' },
@@ -18,6 +19,7 @@ export default [
       { text: '异步编程', link: '/blog/async' },
       { text: '工具函数', link: '/blog/utils' },
       { text: '正则表达式', link: '/blog/RegExp' },
+      { text: '常用库', link: '/blog/packages' },
     ],
   },
   {
@@ -54,7 +56,6 @@ export default [
     items: [
       { text: '使用 nvm 管理 node', link: '/blog/nvm' },
       { text: 'npm 包管理器', link: '/blog/npm' },
-      { text: '常用库', link: '/blog/packages' },
       { text: '常用内置模块', link: '/blog/node-api' },
       { text: 'Express 基本使用', link: '/blog/express' },
       { text: 'Express 常见场景', link: '/blog/express-scene' },

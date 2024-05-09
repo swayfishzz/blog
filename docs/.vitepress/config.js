@@ -13,7 +13,7 @@ export default {
     // 社交账户链接
     socialLinks: [{ icon: 'github', link: 'https://github.com/swayfishzz/swayfishzz.github.io' }],
     // 添加 favicon
-    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+    head: [['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]],
     // 导航栏配置
     nav: [
       { text: '博客', link: '/blog/dom' },

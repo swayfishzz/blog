@@ -1,11 +1,10 @@
 # AJAX
 
-Ajax（Asynchronous JavaScript and XML）允许在不重新加载整个页面的情况下，通过异步方式与服务器交换数据。
+20 世纪 90 年代时， web 应用每靠表单来提交一些数据，服务器处理后就会返回一个新的 html 页面，这两个前后的 html 页面的大部分内容都是相同的，无疑增加了带宽的消耗。
 
-浏览器提供了两种 api 用户实现 Ajax 交互：
+Ajax（Asynchronous JavaScript and XML - 异步的 JavaScript 与 XML）是一个浏览器端的技术，目的在于能在不更新整个页面的前提下维护数据。虽然名称含 XML，但数据格式也可以由 JSON 代替。
 
-- fetch
-- XMLHttpRequest
+浏览器提供了两种用于实现 Ajax 技术的 API：`fetch` 和 `XMLHttpRequest`。
 
 ## Fetch
 
@@ -26,15 +25,15 @@ fetch('/api', {
 })
 ```
 
-### 参数
+### 请求
 
-第一个参数为要请求的资源地址
+第一个参数为要请求的资源地址。
 
 ```js
 fetch('/api')
 ```
 
-第二个参数为一个可选的配置对象
+第二个参数为一个可选的配置对象。
 
 ```js
 fetch('/api', {
@@ -45,20 +44,20 @@ fetch('/api', {
 })
 ```
 
-- `method`：请求方法，GET、POST、PUT、DELETE 等，默认 GET
-- `mode`：要使用的模式，如 cors、no-cors 或 same-origin
-- `cache`：配置请求缓存，default、no-store、reload、no-cache、force-cache 和 only-if-cached
-- `credentials`：如何处理 cookie 凭据，omit 包含 cookie；same-origin 同源携带 cookie；include 同源和跨域都包含 cookie
-- `headers`：请求标头，如 Content-Type 等，可自定义添加
-  - `Content-Type`：资源的 MIME 类型（[MIME types 列表](https://www.iana.org/assignments/media-types/media-types.xhtml)）
-- `body`：消息体，如 JSON、字符串、Blob、ArrayBuffer、FormData 等，需要与请求头中的 Content-Type 匹配
-- `redirect`：控制如何处理重定向，follow 跳转到重定向的地址；error 不跳转重定向页面并显示错误；[manual 手动处理](https://fetch.spec.whatwg.org/#concept-request-redirect-mode)
-- `referrer`：发起请求的客户端的信息，一般为一个 url
-- `signal`：AbortSignal 实例，用来中止 fetch 请求
+- `method`：请求方法，GET、POST、PUT、DELETE 等，默认 GET。
+- `mode`：要使用的模式，如 cors、no-cors 或 same-origin。
+- `cache`：配置请求缓存，default、no-store、reload、no-cache、force-cache 和 only-if-cached。
+- `credentials`：如何处理 cookie 凭据，omit 包含 cookie；same-origin 同源携带 cookie；include 同源和跨域都包含 cookie。
+- `headers`：请求标头，如 Content-Type 等，可自定义添加。
+  - `Content-Type`：资源的 MIME 类型（[MIME types 列表](https://www.iana.org/assignments/media-types/media-types.xhtml)）。
+- `body`：消息体，如 JSON、字符串、Blob、ArrayBuffer、FormData 等，需要与请求头中的 Content-Type 匹配。
+- `redirect`：控制如何处理重定向，follow 跳转到重定向的地址；error 不跳转重定向页面并显示错误；[manual](https://fetch.spec.whatwg.org/#concept-request-redirect-mode) 手动处理。
+- `referrer`：发起请求的客户端的信息，一般为一个 url。
+- `signal`：AbortSignal 实例，用来中止 fetch 请求。
 
-### 返回值
+### 响应
 
-fetch 返回一个 Promise 对象，该 Promise 兑现后返回一个 [Response](https://developer.mozilla.org/zh-CN/docs/Web/API/Response) 对象
+fetch 返回一个 Promise 对象，该 Promise 兑现后返回一个 [Response](https://developer.mozilla.org/zh-CN/docs/Web/API/Response) 对象。
 
 ```js
 const response = await fetch('/api')
@@ -79,6 +78,7 @@ Response 对象的常用属性和方法：
   - `entries()`：返回键值对的遍历器
   - `forEach()`：为每个标头执行一次传入的函数
 - `ok`：布尔值，代表本次请求是否成功（http 状态码 200 - 299 之间）
+- `body`：[ReadableStream](https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream) 可读的数据字节流
 - `redirected`：本次请求是否来自一个重定向
 - `status`：状态码，如 200、404 等
 - `statusText`：状态码的文本描述，如 200 为 ok
@@ -93,7 +93,7 @@ Response 对象的常用属性和方法：
 
 ### 中止请求
 
-中止 fetch 的请求，需要用到 [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) 对象
+中止 fetch 的请求，需要用到 [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) 对象。
 
 ```js
 const controller = new AbortController()
@@ -154,7 +154,7 @@ fetch('/api', {
 
 ## XMLHttpRequest
 
-[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 是最早用于实现 Ajax 的技术之一。现在已经不推荐使用它来实现 ajax 交互，因为它的操作过程较为繁琐，推荐使用 Fetch
+[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 是最早用于实现 Ajax 的技术之一。现在已经不推荐使用它来实现 ajax 交互，因为它的操作过程较为繁琐，推荐使用 Fetch。
 
 ```js
 // 创建 XMLHttpRequest 对象

@@ -34,7 +34,7 @@ example() // 在浏览器中，输出 window 对象
 const obj = {
   method: function () {
     console.log(this)
-  }
+  },
 }
 
 obj.method() // 在浏览器中，输出 obj 对象
@@ -73,4 +73,51 @@ console.log(instance.property) // 输出 'value'
 document.getElementById('myButton').addEventListener('click', function () {
   console.log(this) // 在这个上下文中，this 指向触发点击事件的按钮元素
 })
+```
+
+## 修改 this 指向
+
+主要介绍修改 this 指向的三个方法：call、apply、bind，它们都是函数原型上的方法。
+
+### call
+
+call 会将第一个参数作为函数运行时的 this 并接收不定量的参数来运行该函数。
+
+```js
+const people1 = { name: '张三' }
+const people2 = { name: '李四' }
+
+function sayHello(age, gender) {
+  console.log(this.name, age, gender)
+}
+
+sayHello.call(people1, 11, '男') // 张三 11 男
+sayHello.call(people2, 22, '女') // 李四 22 女
+```
+
+### apply
+
+apply 用法与 call 相同，不同点在于 apply 第二个参数接收一个数组：
+
+```js
+const numbers = [5, 6, 2, 3, 7]
+
+const max = Math.max.apply(null, numbers)
+console.log(max) // 7
+```
+
+### bind
+
+bind 方法创建一个新函数，新函数的 this 指向为第一个参数，并接收不定量的参数。
+
+```js
+const o = {
+  name: '张三',
+  sayHello() {
+    console.log(this.name)
+  },
+}
+
+const fn = o.sayHello.bind({ name: '李四' })
+fn() // 李四
 ```
