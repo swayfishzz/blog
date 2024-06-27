@@ -1,11 +1,12 @@
 export default [
   {
-    text: 'Web API',
+    text: '浏览器',
     collapsed: false,
     items: [
       { text: 'DOM 操作', link: '/blog/dom' },
       { text: '事件处理', link: '/blog/event' },
       { text: 'Observer', link: '/blog/observer' },
+      { text: '事件循环', link: '/blog/browser-event-loop' },
       // { text: '存储', link: '/blog/storage' },
       // { text: '跨标签页通信', link: '/blog/multiple-tags' },
     ],
@@ -14,7 +15,6 @@ export default [
     text: 'JavaScript',
     collapsed: false,
     items: [
-      { text: 'this', link: '/blog/this' },
       { text: '模块化', link: '/blog/module' },
       { text: '异步编程', link: '/blog/async' },
       { text: '工具函数', link: '/blog/utils' },
@@ -57,6 +57,9 @@ export default [
       { text: '使用 nvm 管理 node', link: '/blog/nvm' },
       { text: 'npm 包管理器', link: '/blog/npm' },
       { text: '常用内置模块', link: '/blog/node-api' },
+      // { text: 'EventEmitter', link: '/blog/event-emitter' },
+      // { text: 'stream', link: '/blog/stream' },
+      // { text: '事件循环', link: '/blog/node-event-loop' },
       { text: 'Express 基本使用', link: '/blog/express' },
       { text: 'Express 常见场景', link: '/blog/express-scene' },
     ],

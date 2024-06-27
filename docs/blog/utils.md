@@ -27,7 +27,12 @@ const getRandomColor = isRGB => {
   if (isRGB) {
     return `rgb(${getRandom(0, 256)},${getRandom(0, 256)},${getRandom(0, 256)})`
   } else {
-    return '#' + parseInt(Math.random() * 0xffffff).toString(16).padStart(6, '0')
+    return (
+      '#' +
+      parseInt(Math.random() * 0xffffff)
+        .toString(16)
+        .padStart(6, '0')
+    )
   }
 }
 ```
@@ -42,25 +47,18 @@ const getRandomColor = isRGB => {
 - `''`（空字符串）
 - `[]`（长度为 0 的数组）
 - `{}`（无属性的对象）
+- 空 Map
+- 空 Set
 
 ```js
 /* 判断一个值是否为空 */
 const isEmpty = value => {
-  if (value === null || typeof value === 'undefined') {
-    return true
-  }
-  if (typeof value === 'number' && isNaN(value)) {
-    return true
-  }
-  if (typeof value === 'string' && value === '') {
-    return true
-  }
-  if (Array.isArray(value) && value.length === 0) {
-    return true
-  }
-  if (Object.prototype.toString.call(value) === '[object Object]' && Object.keys(value).length === 0) {
-    return true
-  }
+  if (value === 0) return false
+  if (!value) return true
+  const type = Object.prototype.toString.call(value).slice(8, -1)
+  if (type === 'Object' && Object.keys(value).length === 0) return true
+  if (type === 'Map' && value.size === 0) return true
+  if (type === 'Set' && value.size === 0) return true
   return false
 }
 ```
@@ -116,44 +114,36 @@ console.log(2) // 两秒钟后，输出 2
 ### 异步等待一段时间
 
 ```js
-const sleep = (duration = 500) => {
-  return new Promise(resolve => setTimeout(resolve, duration))
-}
+const delay = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms))
 ```
 
 示例：
 
 ```js
 async function foo() {
-  await sleep(2000)
+  await delay(2000)
 }
 ```
 
 ### 解析 URL 参数
 
 ```js
-/* 解析 URL 参数 */
+/**
+ * 解析url参数
+ * @param {String} url
+ * @example
+ *  parseQuery('https://www.baidu.com?wd=mdn&lang=zhCn')
+ *  // -> { wd: 'mdn', lang: 'zhCn' }
+ * @returns {Object}
+ */
 const parseQuery = (url = location.href) => {
-  const index = url.indexOf('?')
-  const result = {}
-  if (index === -1) {
-    return result
+  const res = {}
+  const params = new URL(url).searchParams
+  for (const [k, v] of params) {
+    res[k] = decodeURIComponent(v)
   }
-  const arr = url.substring(index + 1).split('&')
-  for (let i = 0; i < arr.length; i++) {
-    const q = arr[i].split('=')
-    result[q[0]] = q[1]
-  }
-  return result
+  return res
 }
-```
-
-示例：
-
-```js
-const url = 'http://localhost:7777/path?key1=value1&key2=value2'
-const query = parseQuery(url)
-console.log(query) // { key1: 'value1', key2: 'value2' }
 ```
 
 ### 防抖
@@ -415,6 +405,32 @@ const color1 = '#FF0000' // Red
 const color2 = '#0000FF' // Blue
 const blendedColor = blendColors(color1, color2, 0.5) // Mix with a 50/50 ratio
 console.log(blendedColor) // Output: "#800080" (Purple)
+```
+
+### 格式化日期
+
+```js
+/**
+ * 格式化日期
+ * @param {Date|String|Number} [date] 日期对象、时间戳或日期字符串
+ * @param {String} [format]
+ * @example
+ *  formatDate(999999999999) // 2001-09-09 09:46:39
+ *  formatDate(new Date(999999999999), 'yyyy年MM月dd日 HH时mm分ss秒') // '2001年09月09日 09时46分39秒'
+ * @returns
+ */
+const formatDate = (date = new Date(), format = 'yyyy-MM-dd HH:mm:ss') => {
+  const d = date instanceof Date ? date : new Date(date)
+  const tactics = {
+    yyyy: d.getFullYear(),
+    MM: d.getMonth() + 1,
+    dd: d.getDate(),
+    HH: d.getHours(),
+    mm: d.getMinutes(),
+    ss: d.getSeconds(),
+  }
+  return format.replace(/(yyyy|MM|dd|HH|mm|ss)/g, char => tactics[char].toString().padStart(2, '0'))
+}
 ```
 
 ### 将文本内容下载为 .txt 文件

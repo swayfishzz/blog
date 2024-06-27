@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DwILdc5J.js";const c=JSON.parse('{"title":"this","description":"","frontmatter":{},"headers":[],"relativePath":"blog/this.md","filePath":"blog/this.md"}'),h={name:"blog/this.md"},l=n("",33),t=[l];function p(k,e,E,d,r,g){return a(),i("div",null,t)}const y=s(h,[["render",p]]);export{c as __pageData,y as default};
