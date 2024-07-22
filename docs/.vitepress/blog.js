@@ -6,7 +6,7 @@ export default [
       { text: 'DOM 操作', link: '/blog/dom' },
       { text: '事件处理', link: '/blog/event' },
       { text: 'Observer', link: '/blog/observer' },
-      { text: '事件循环', link: '/blog/browser-event-loop' },
+      // { text: '事件循环', link: '/blog/browser-event-loop' },
       // { text: '存储', link: '/blog/storage' },
       // { text: '跨标签页通信', link: '/blog/multiple-tags' },
     ],
