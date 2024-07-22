@@ -1,8 +1,8 @@
 # AJAX
 
-20 世纪 90 年代时， web 应用依靠表单来提交一些数据，而每次提交表单，服务器处理后就会返回一个新的 html 页面，这两个前后的 html 页面的大部分内容都是相同的，无疑增加了带宽的消耗。
-
 Ajax（Asynchronous JavaScript and XML - 异步的 JavaScript 与 XML）是一个浏览器端的技术，目的在于能在不更新整个页面的前提下维护数据。虽然名称含 XML，但数据格式也可以由 JSON 代替。
+
+20 世纪 90 年代时， web 应用依靠表单来提交一些数据，而每次提交表单，服务器处理后就会返回一个新的 html 页面，这两个前后的 html 页面的大部分内容都是相同的，无疑增加了带宽的消耗。
 
 浏览器提供了两种用于实现 Ajax 技术的 API：`fetch` 和 `XMLHttpRequest`。
 
@@ -104,54 +104,6 @@ fetch('/api', { signal: controller.signal })
 controller.abort()
 ```
 
-### 配置请求的消息体
-
-**JSON 数据**
-
-```js
-fetch('/api', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' }
-  body: JSON.stringify({ foo: 'bar' })
-})
-```
-
-**表单数据**
-
-```js
-const form = document.querySelector('form')
-
-fetch('/api', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-  body: new FormData(form)
-})
-```
-
-**上传文件**
-
-```js
-const fileInp = document.querySelector('input[type=file]')
-const formData = new FormData() // 构建form-data的消息体
-formData.append('file', fileInp.files[0]) // 上传单个文件
-
-fetch('/api', {
-  method: 'POST',
-  body: formData,
-})
-```
-
-**上传二进制数据**
-
-```js
-const blob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'))
-
-fetch('/api', {
-  method: 'POST',
-  body: blob,
-})
-```
-
 ## XMLHttpRequest
 
 [XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 是最早用于实现 Ajax 的技术之一。现在已经不推荐使用它来实现 ajax 交互，因为它的操作过程较为繁琐，推荐使用 Fetch。
@@ -160,8 +112,8 @@ fetch('/api', {
 // 创建 XMLHttpRequest 对象
 const xhr = new XMLHttpRequest()
 
-// 使用 open 指定请求的方法、URL 和是否异步
-xhr.open('GET', '/api', true)
+// 使用 open 指定请求的方法、URL
+xhr.open('GET', '/api')
 
 // 通过 send 方法发送请求
 xhr.send()
@@ -174,4 +126,4 @@ xhr.onreadystatechange = () => {
 }
 ```
 
-XMLHttpRequest 进行网络请求的操作过程过于繁琐，通常会使用第三方库来完成网络通信，比如早期的 jQuery.ajax。
+XMLHttpRequest 进行网络请求的操作过程过于繁琐，通常会使用第三方库来完成网络通信，比如 axios。

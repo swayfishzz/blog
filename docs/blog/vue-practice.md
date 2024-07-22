@@ -19,6 +19,54 @@
 - `watchDebounced`：防抖 watch。
 - ...
 
+## v-resize 指令
+
+使用 ResizeObserver 监听元素的尺寸变化，变化后运行传入的函数。
+
+```js
+import { throttle } from 'lodash'
+
+export default {
+  mounted(el, binding) {
+    const throttleDelay = binding.arg || 100 // 默认节流时间为100ms，可以通过指令参数传递
+    const callback = throttle(binding.value, throttleDelay)
+
+    const resizeObserver = new ResizeObserver(entries => {
+      for (let entry of entries) {
+        callback(entry.contentRect)
+      }
+    })
+
+    resizeObserver.observe(el)
+    el._resizeObserver = resizeObserver
+  },
+  unmounted(el) {
+    if (el._resizeObserver) {
+      el._resizeObserver.disconnect()
+      delete el._resizeObserver
+    }
+  },
+}
+```
+
+使用
+
+```vue
+<template>
+  <div v-resize="handleResize"></div>
+  <!-- 自定义节流时间 -->
+  <div v-resize:200="handleResize"></div>
+</template>
+
+<script setup>
+import vResize from '@/directives/v-resize.js'
+
+const handleResize = rect => {
+  console.log(rect.width, rect.height)
+}
+</script>
+```
+
 ## nProgress
 
 [nProgress](https://ricostacruz.com/nprogress/) 是一款轻量级的页面加载进度条库，在 Vue 中，通常与 VueRouter 结合使用。
@@ -93,45 +141,6 @@ instance.interceptors.response.use(
 )
 
 return instance
-```
-
-## v-contextmenu 右键菜单
-
-[v-contextmenu](https://www.npmjs.com/package/v-contextmenu) 是一款用于 Vue 的右键菜单库，以组件的形式使用。
-
-在项目中引入
-
-```js
-import contextmenu from 'v-contextmenu'
-import 'v-contextmenu/dist/themes/default.css'
-
-app.use(contextmenu)
-```
-
-开始使用
-
-```vue
-<template>
-  <!-- 在此区域右键即可打开菜单 -->
-  <div v-contextmenu:contextmenu>打开右键菜单</div>
-
-  <!-- 菜单内容 -->
-  <v-contextmenu ref="contextmenu">
-    <v-contextmenu-item>菜单1</v-contextmenu-item>
-    <!-- 菜单分割线 -->
-    <v-contextmenu-divider />
-    <!-- 按钮组 -->
-    <v-contextmenu-item-group>
-      <v-contextmenu-item>Github</v-contextmenu-item>
-      <v-contextmenu-item disabled>支付宝</v-contextmenu-item>
-    </v-contextmenu-item-group>
-    <!-- 子菜单 -->
-    <v-contextmenu-subitem title="子菜单">
-      <v-contextmenu-item>子菜单1</v-contextmenu-item>
-      <v-contextmenu-item>子菜单2</v-contextmenu-item>
-    </v-contextmenu-subitem>
-  </v-contextmenu>
-</template>
 ```
 
 ## SortableJS 排序

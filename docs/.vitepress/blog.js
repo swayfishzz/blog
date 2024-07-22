@@ -26,10 +26,10 @@ export default [
     text: '网络',
     collapsed: false,
     items: [
-      // { text: 'HTTP', link: '/blog/http' },
+      { text: 'HTTP', link: '/blog/http' },
       // { text: 'HTTPS', link: '/blog/https' },
       { text: 'AJAX', link: '/blog/ajax' },
-      // { text: 'CORS', link: '/blog/cors' },
+      { text: 'CORS', link: '/blog/cors' },
       { text: 'CDN', link: '/blog/cdn' },
       // { text: 'Cookie & Session', link: '/blog/cookie-session' },
       // { text: '网络安全', link: '/blog/network-security' },
