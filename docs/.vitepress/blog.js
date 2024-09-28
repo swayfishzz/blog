@@ -58,7 +58,7 @@ export default [
       { text: 'npm 包管理器', link: '/blog/npm' },
       { text: '常用内置模块', link: '/blog/node-api' },
       // { text: 'EventEmitter', link: '/blog/event-emitter' },
-      // { text: 'stream', link: '/blog/stream' },
+      // { text: '流', link: '/blog/stream' },
       // { text: '事件循环', link: '/blog/node-event-loop' },
       { text: 'Express 基本使用', link: '/blog/express' },
       { text: 'Express 常见场景', link: '/blog/express-scene' },

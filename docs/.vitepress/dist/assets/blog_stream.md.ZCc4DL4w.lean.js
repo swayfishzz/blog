@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as r,a4 as t}from"./chunks/framework.DwILdc5J.js";const u=JSON.parse('{"title":"流数据","description":"","frontmatter":{},"headers":[],"relativePath":"blog/stream.md","filePath":"blog/stream.md"}'),o={name:"blog/stream.md"},l=t("",5),s=[l];function i(n,d,h,c,_,m){return r(),e("div",null,s)}const f=a(o,[["render",i]]);export{u as __pageData,f as default};

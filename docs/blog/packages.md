@@ -2,20 +2,20 @@
 
 ## 工具
 
-| 名称                                   | 描述                                                                          |
-| -------------------------------------- | ----------------------------------------------------------------------------- |
-| [lodash-es](https://www.lodashjs.com/) | lodash 大名鼎鼎的工具库，lodash-es 是它的 ES Module 版本，支持构建工具的 Tree Shaking |
-| [xijs](http://h5.dooring.cn/xijs/)     | 一个包含许多业务场景的工具库                                                  |
+| 名称                                   | 描述                                                                                    |
+| -------------------------------------- | --------------------------------------------------------------------------------------- |
+| [lodash-es](https://www.lodashjs.com/) | lodash 是大名鼎鼎的工具库，lodash-es 是它的 ES Module 版本，支持构建工具的 Tree Shaking |
+| [xijs](http://h5.dooring.cn/xijs/)     | 一个包含许多业务场景的工具库                                                            |
 
 ## CSS
 
-| 名称                                                     | 描述                                                                               |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [Tailwind CSS](https://www.tailwindcss.cn/)              | CSS 工具类框架                                                                     |
-| [Windi CSS](https://cn.windicss.org/)                    | CSS 工具类框架，支持 Tailwind CSS 所有工具类，在生产环境清除未使用的工具类以节省体积 |
-| [Normalize.css](http://necolas.github.io/normalize.css/) | 规范化各种元素的样式，使不同浏览器下 HTML 呈现趋近一致                             |
-| [Animate.css](https://animate.style/)                    | 内置了很多典型的 css3 动画，兼容性好使用方便                                       |
-| [Hover.css](http://ianlunn.github.io/Hover/)             | 基于 CSS3 的鼠标悬停效果和动画                                                     |
+| 名称                                                     | 描述                                                                 |
+| -------------------------------------------------------- | -------------------------------------------------------------------- |
+| [Tailwind CSS](https://www.tailwindcss.cn/)              | 原子类 CSS 框架                                                        |
+| [UnoCSS](https://unocss.nodejs.cn/)                      | 原子类 CSS 框架，按需生成 css 类，相比 Tailwind 支持更多的自定义功能 |
+| [Normalize.css](http://necolas.github.io/normalize.css/) | 规范化各种元素的样式，使不同浏览器下 HTML 呈现趋近一致               |
+| [Animate.css](https://animate.style/)                    | 内置了很多典型的 css3 动画，兼容性好使用方便                         |
+| [Hover.css](http://ianlunn.github.io/Hover/)             | 基于 CSS3 的鼠标悬停效果和动画                                       |
 
 ## icon/图表/图像
 

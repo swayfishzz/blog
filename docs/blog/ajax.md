@@ -8,7 +8,7 @@ Ajax（Asynchronous JavaScript and XML - 异步的 JavaScript 与 XML）是一�
 
 ## Fetch
 
-[Fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/fetch) 是 HTML5 中出现的新 api，用于实现 Ajax 交互，它基于 Promise 形式进行网络请求，且配置非常简单。
+[Fetch API](https://developer.mozilla.org/zh-CN/docs/Web/API/fetch) 是一种用于在浏览器中进行网络请求的现代方法。它提供了一个简单而强大的接口，用于发送 HTTP 请求并处理响应。
 
 示例：
 
@@ -27,7 +27,7 @@ fetch('/api', {
 
 ### 请求
 
-第一个参数为要请求的资源地址。
+第一个参数为要请求的资源地址，默认为 `GET` 请求。
 
 ```js
 fetch('/api')
@@ -49,7 +49,7 @@ fetch('/api', {
 - `cache`：配置请求缓存，default、no-store、reload、no-cache、force-cache 和 only-if-cached。
 - `credentials`：如何处理 cookie 凭据，omit 包含 cookie；same-origin 同源携带 cookie；include 同源和跨域都包含 cookie。
 - `headers`：请求标头，如 Content-Type 等，可自定义添加。
-  - `Content-Type`：资源的 MIME 类型（[MIME types 列表](https://www.iana.org/assignments/media-types/media-types.xhtml)）。
+  - `Content-Type`：资源的 [MIME 类型](https://www.iana.org/assignments/media-types/media-types.xhtml)。
 - `body`：消息体，如 JSON、字符串、Blob、ArrayBuffer、FormData 等，需要与请求头中的 Content-Type 匹配。
 - `redirect`：控制如何处理重定向，follow 跳转到重定向的地址；error 不跳转重定向页面并显示错误；[manual](https://fetch.spec.whatwg.org/#concept-request-redirect-mode) 手动处理。
 - `referrer`：发起请求的客户端的信息，一般为一个 url。
