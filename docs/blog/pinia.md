@@ -1,4 +1,5 @@
 # 状态管理 Pinia
+
 在 Vue3 中，[Pinia](https://pinia.vuejs.org/zh) 作为新的状态管理工具来代替 [Vuex](https://vuex.vuejs.org/zh/)。与 Vuex 相比，Pinia 不仅提供了一个更简单的 API，也提供了符合组合式 API 风格的 API
 
 ## 开始使用
@@ -53,7 +54,7 @@ export const useCountStore = defineStore('counter', {
   },
   // 使用 getters 定义需要二次计算的数据
   getters: {
-    doubleCount: (state) => state.count * 2,
+    doubleCount: state => state.count * 2,
   },
 })
 ```
@@ -144,6 +145,8 @@ defineStore(
 
 该插件默认使用 `localStorage` 进行存储，使用仓库 id 作为默认的 key，并且默认持久化整个 state 的数据，我们可以自定义配置，需要将 persist 属性设置为对象形式：
 
+[查看所有配置项](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/config.html)
+
 ```js
 defineStore('count', {
   state: () => ({
@@ -152,8 +155,8 @@ defineStore('count', {
   }),
   persist: {
     key: 'custom-key', // 指定存储的 key
-    storage: 'sessionStorage', // 指定存储介质
-    paths: ['user.name', 'job'], // 仅存储 user.name 和 job 数据
+    storage: sessionStorage, // 指定存储介质
+    pick: ['user.name', 'job'], // 仅存储 user.name 和 job 数据
   },
 })
 ```

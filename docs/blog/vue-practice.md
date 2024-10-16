@@ -272,13 +272,13 @@ const primaryColor = ref('#409eff') // 默认项目主题色
 
 watch(primaryColor, color => {
   // 修改主题色，将变量修改到 body 上，优先级大于 :root 选择器，ElementPlus 组件就会使用 body 中的变量
-  document.body.setProperty('--el-color-primary', color)
+  document.body.style.setProperty('--el-color-primary', color)
   // 修改 dark 辅色
-  document.body.setProperty('--el-color-primary-dark-2', blendColors('#000000', color, 0.2))
+  document.body.style.setProperty('--el-color-primary-dark-2', blendColors('#000000', color, 0.2))
   // 循环修改剩余的 light 辅色
   ;[3, 5, 7, 8, 9].forEach(level => {
     const computedColor = blendColors('#ffffff', color, level / 10)
-    document.body.setProperty('--el-color-primary-light-' + level, computedColor)
+    document.body.style.setProperty('--el-color-primary-light-' + level, computedColor)
   })
 })
 </script>

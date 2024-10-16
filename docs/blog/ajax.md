@@ -1,8 +1,8 @@
 # AJAX
 
-Ajax（Asynchronous JavaScript and XML - 异步的 JavaScript 与 XML）是一个浏览器端的技术，目的在于能在不更新整个页面的前提下维护数据。虽然名称含 XML，但数据格式也可以由 JSON 代替。
+没有 Ajax 时，web 应用依靠表单来提交一些数据，而每次提交表单，服务器处理后就会返回一个新的 html 页面，这两个前后的 html 页面的大部分内容都是相同的，无疑增加了带宽的消耗。
 
-20 世纪 90 年代时， web 应用依靠表单来提交一些数据，而每次提交表单，服务器处理后就会返回一个新的 html 页面，这两个前后的 html 页面的大部分内容都是相同的，无疑增加了带宽的消耗。
+Ajax（Asynchronous JavaScript and XML - 异步的 JavaScript 与 XML）是一个浏览器端的技术，目的在于能在不更新整个页面的前提下维护数据。虽然名称含 XML，但数据格式也可以由 JSON 代替。
 
 浏览器提供了两种用于实现 Ajax 技术的 API：`fetch` 和 `XMLHttpRequest`。
 

@@ -20,6 +20,7 @@ export default [
       { text: '工具函数', link: '/blog/utils' },
       { text: '正则表达式', link: '/blog/RegExp' },
       { text: '常用库', link: '/blog/packages' },
+      { text: '设计模式', link: '/blog/design-pattern' },
     ],
   },
   {
@@ -57,7 +58,7 @@ export default [
       { text: '使用 nvm 管理 node', link: '/blog/nvm' },
       { text: 'npm 包管理器', link: '/blog/npm' },
       { text: '常用内置模块', link: '/blog/node-api' },
-      // { text: 'EventEmitter', link: '/blog/event-emitter' },
+      { text: 'EventEmitter', link: '/blog/event-emitter' },
       // { text: '流', link: '/blog/stream' },
       // { text: '事件循环', link: '/blog/node-event-loop' },
       { text: 'Express 基本使用', link: '/blog/express' },

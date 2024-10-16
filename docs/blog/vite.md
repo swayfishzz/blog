@@ -6,9 +6,25 @@
 
 打开终端，导航到你想要创建项目的目录，使用以下命令创建一个新的 Vite 项目。
 
-```bash
+::: code-group
+
+```bash [npm]
 npm create vite@latest
 ```
+
+```bash [yarn]
+yarn create vite
+```
+
+```bash [pnpm]
+pnpm create vite
+```
+
+```bash [bun]
+bun create vite
+```
+
+:::
 
 运行后，Vite 将在终端中提供一些可供选择的配置，Vite 会根据选项创建项目文件结构，创建完成后，使用以下命令启动开发服务器
 
