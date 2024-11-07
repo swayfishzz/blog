@@ -16,10 +16,11 @@ export default [
     collapsed: false,
     items: [
       { text: '模块化', link: '/blog/module' },
+      // { text: '位运算符', link: '/blog/bitwise' },
       { text: '异步编程', link: '/blog/async' },
       { text: '工具函数', link: '/blog/utils' },
-      { text: '正则表达式', link: '/blog/RegExp' },
       { text: '常用库', link: '/blog/packages' },
+      { text: '正则表达式', link: '/blog/RegExp' },
       { text: '设计模式', link: '/blog/design-pattern' },
     ],
   },
@@ -36,7 +37,7 @@ export default [
       // { text: '网络安全', link: '/blog/network-security' },
       // { text: '性能优化', link: '/blog/network-performance-optimization' },
       // { text: 'WebSocket', link: '/blog/websocket' }
-    ]
+    ],
   },
   {
     text: 'Vue',
@@ -57,8 +58,9 @@ export default [
     items: [
       { text: '使用 nvm 管理 node', link: '/blog/nvm' },
       { text: 'npm 包管理器', link: '/blog/npm' },
+      { text: 'package.json', link: '/blog/package-json' },
+      { text: '全局变量', link: '/blog/node-globals' },
       { text: '常用内置模块', link: '/blog/node-api' },
-      { text: 'EventEmitter', link: '/blog/event-emitter' },
       // { text: '流', link: '/blog/stream' },
       // { text: '事件循环', link: '/blog/node-event-loop' },
       { text: 'Express 基本使用', link: '/blog/express' },

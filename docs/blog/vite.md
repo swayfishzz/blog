@@ -100,23 +100,29 @@ console.log(import.meta.env.VITE_BASE_URL) // 根据不同模式输出不同的�
 
 可以通过 `vite.config.js` 中的 [`server`](https://cn.vitejs.dev/config/server-options.html) 选项来配置开发阶段的服务器代理
 
+> `vite.config.js` 内访问不到定义的环境变量，需要使用 vite 提供的 `loadEnv` 函数手动加载。
+
 ```js
-export default {
-  server: {
-    port: 8080, // 指定开发服务器的端口号，默认为 3000
-    open: false, // 是否在启动时自动打开浏览器
-    proxy: {
-      // 配置跨域代理
-      '/api': 'https://www.domain.com', // 要进行代理的域名
-      '/api2': {
-        target: 'https://www.test.com', // 要进行代理的域名
-        changeOrigin: true, // 修改请求头中的 host 和 origin
-        pathRewrite: {
-          '^/api2': '', // 将路径中的【/api2】重写为 ''
+import { loadEnv } from 'vite'
+
+export default ({ mode }) => {
+  const env = loadEnv(mode, process.cwd())
+
+  return {
+    server: {
+      port: 8080, // 指定开发服务器的端口号，默认为 3000
+      open: false, // 是否在启动时自动打开浏览器
+      proxy: {
+        // 配置跨域代理
+        '/api': env.VITE_API_BASE_URL, // 要进行代理的域名
+        '/api2': {
+          target: 'https://www.test.com', // 要进行代理的域名
+          changeOrigin: true, // 修改请求头中的 host 和 origin
+          rewrite: path => path.replace(/^\/api/, ''), // 将路径中的 api 重写为 ''
         },
       },
     },
-  },
+  }
 }
 ```
 

@@ -10,14 +10,6 @@ npm（Node Package Manager）通常与 Node.js 一起安装，因为它是 Node.
 
 npm 具有许多配置选项，可用于自定义 npm 的行为和设置。
 
-### 查看 npm 配置
-
-```bash
-npm config list # 查看用户修改的配置
-npm config list -l # 查看 npm 所有配置
-npm config list -l --json # 以 json 形式查看所有配置
-```
-
 若要获取和设置全局配置，可以使用以下命令
 
 ```bash
@@ -25,7 +17,15 @@ npm config get key # 获取一个全局配置
 npm config set key value # 更改一个全局配置
 ```
 
-### 修改 npm 镜像源
+**查看 npm 配置**
+
+```bash
+npm config list # 查看用户修改的配置
+npm config list -l # 查看 npm 所有配置
+npm config list -l --json # 以 json 形式查看所有配置
+```
+
+**修改 npm 镜像源**
 
 npm 的镜像源位于国外，下载速度慢，有时会因此下载失败。我们可以将下载地址切换到淘宝的 npmmirror 镜像站
 
@@ -33,17 +33,17 @@ npm 的镜像源位于国外，下载速度慢，有时会因此下载失败。�
 npm config set registry http://registry.npmmirror.com
 ```
 
-### 使用 nrm 管理镜像源
+## 使用 nrm 管理镜像源
 
 nrm 是一个简单的 npm 镜像源管理工具，它提供了许多的镜像源，可以快速的在他们之间切换，只需几行命令即可：
 
-#### 安装 nrm
+**安装 nrm**
 
 ```bash
 npm i nrm -g
 ```
 
-#### 查看镜像
+**查看镜像**
 
 ```bash
 nrm ls
@@ -56,19 +56,19 @@ nrm ls
   npmMirror ---- https://skimdb.npmjs.com/registry/
 ```
 
-#### 切换镜像
+**切换镜像**
 
 ```bash
 nrm use taobao
 ```
 
-#### 查看当前使用的镜像
+**查看当前使用的镜像**
 
 ```bash
 nrm current
 ```
 
-#### 添加镜像源
+**添加镜像源**
 
 适用于企业内部定制的私有源，`<registry>` 表示源名称，`<url>` 表示源地址。
 
@@ -76,86 +76,11 @@ nrm current
 nrm add <registry> <url>
 ```
 
-#### 测试镜像的响应时间
+**测试镜像的响应时间**
 
 ```bash
 nrm test taobao
 ```
-
-## package.json
-
-package.json 是一个用于描述 Node.js 项目的元数据和依赖关系的配置文件。它通常位于项目的根目录中，是 Node.js 项目和 npm 包管理的核心文件之一。
-
-### 定义运行脚本
-
-`package.json` 中的 `scripts` 选项用于定义项目中的自定义脚本。例如启动应用程序、运行测试、构建项目、部署应用程序等。
-
-其中键是脚本的名称，值是要运行在终端中的 Shell 命令。
-
-```json
-"scripts": {
-  "start": "nodemon server.js",
-  "test": "mocha",
-  "build": "webpack"
-}
-```
-
-运行脚本：
-
-```bash
-npm run start # 会运行 nodemon server.js 命令
-npm run build # 会运行 webpack 命令
-```
-
-一些特定的脚本名称可以省略 `run` 运行，例如 `start`、`restart`、`test`。
-
-```bash
-npm run start
-# 等于
-npm start
-```
-
-### 依赖关系
-
-依赖关系可以分为两种主要类型：**运行时依赖关系** 和 **开发时依赖关系**。
-
-**`dependencies`**：定义了项目在运行时需要的依赖项，通常是项目在上线运行时所需的包。
-
-```json
-{
-  "dependencies": {
-    "express": "4.17.1",
-    "body-parser": "1.19.0"
-  }
-}
-```
-
-**`devDependencies`**：定义了项目在上线运行时不需要的依赖，仅为了方便开发而安装的包。这些依赖项不会包含在最终部署的项目中，而是在开发环境中使用。典型的开发依赖包括测试框架、构建工具、代码检查工具等。
-
-```json
-"devDependencies": {
-  "mocha": "^9.0.0",
-  "webpack": "^5.0.0",
-  "eslint": "^8.0.0"
-}
-```
-
-### 其它
-
-其它的配置通常用于包的发布，日常开发中，一般无需去关心这些配置
-
-- `name`: 项目的名称，通常是小写字母，不包含空格或特殊字符。
-- `version`: 项目的版本号，通常采用 [语义化版本规范 (Semantic Versioning)](https://semver.org/)。
-- `description`: 项目的简短描述，用于解释项目的主要目标或内容。
-- `main`: 项目的入口点文件，通常是一个 JavaScript 文件。
-- `author`: 项目的作者或维护者的名称。
-- `license`: 项目的许可证，指明了使用项目的规则和限制。
-- `repository`: 项目的源代码托管库的 URL。
-- `keywords`: 数组，与项目相关的关键字，用于使别人更容易地找到你的项目。
-- `bugs`：提交 bug 的地址，一般为你的 git 仓库地址的 issues。
-- `engines`: 指定项目运行所需的 Node.js 版本范围。
-- `private`: 如果设置为 `true`，则防止项目被发布到 npm 注册表。
-- `browserslist`: 指定项目支持的浏览器和其版本。
 
 ## 常用命令
 
@@ -175,9 +100,9 @@ npm init -y
 npm i
 ```
 
-### 安装包
+### 安装
 
-#### 作为生产依赖安装
+**生产依赖安装**
 
 ```bash
 npm i 包名
@@ -185,7 +110,7 @@ npm i 包名1 包名2 # 安装多个包
 npm i 包名@版本号 # 安装指定版本
 ```
 
-#### 作为开发依赖安装
+**开发依赖安装**
 
 使用 `-D` 参数安装包将它们添加到项目的 `devDependencies` 中，`devDependencies` 是一组仅在开发环境中需要的包的列表。这样做可以减小生产环境的包大小。
 
@@ -193,26 +118,32 @@ npm i 包名@版本号 # 安装指定版本
 npm i 包名 -D
 ```
 
-#### 全局安装
+### 全局安装
 
 ```bash
 npm i 包名 -g
 ```
 
-### 卸载包
+查看全局安装的包
+
+```bash
+npm list -g --depth=0 # depth=0代表查看的嵌套层级为0
+```
+
+查看存放全局包的路径
+
+```bash
+npm prefix -g
+```
+
+### 卸载
 
 ```bash
 npm un 包名 # 移除包
 npm un 包名 -g # 移除全局安装的包
 ```
 
-### 检查过时的包
-
-```bash
-npm outdated
-```
-
-### 更新包
+### 更新
 
 ```bash
 # 更新所有过时的包
@@ -225,21 +156,15 @@ npm update 包名
 npm update npm -g
 ```
 
-### 查看全局安装的包
+### 检查过时的包
 
 ```bash
-npm list -g --depth=0 # depth=0代表查看的嵌套层级为0
-```
-
-### 查看存放全局包的路径
-
-```bash
-npm prefix -g
+npm outdated
 ```
 
 ### npx
 
-npx 想要解决的主要问题，就是调用项目内部安装的模块，npx 还能避免全局安装的模块。比如，`create-react-app`这个模块是全局安装，npx 可以运行它，而且不进行全局安装。
+npx 的用途是使用非全局安装的 npm 包的命令行工具。全局安装可能会导致不同项目之间的版本冲突。使用 npx 可以确保每个项目都使用其依赖中指定的确切版本。
 
 ```bash
 npx create-react-app my-react-app
@@ -251,166 +176,23 @@ npx create-react-app my-react-app
 
 ### yarn
 
-[yarn](https://www.yarnpkg.cn/) 是由 Facebook、Google、Exponent 和 Tilde 联合推出的一款包管理器，它是一个替代 npm 的工具，因为以往的 npm 存在以下问题：
+[yarn](https://www.yarnpkg.cn/) 是由 Facebook、Google、Exponent 和 Tilde 联合推出的一款包管理器，它旨在解决 npm 的一些痛点。但 npm 跟快就学习了 yarn 的优点，截止 npm@6 时，与 yarn 已经没有多少差距。
 
-- npm 的依赖是嵌套的，而 windows 最大支持 256 个路径字符
-- 依赖嵌套，也导致同版本包被重复安装
-- 安装速度慢，npm 对包的下载是串行的，即上个包安装完后，再安装下一个
+**优点**
 
-yarn 将这些问题解决，并进行额外优化：
-
-- 目录扁平化
-- 使用并行下载和缓存来提高包安装速度
-- 使用 yarn-lock 确保项目的依赖项版本一致性
-- 离线支持，不联网时，从本地检索包并安装
-
-因此，npm 的用户大量流失到 yarn，随后不久 npm 学习 yarn 的模式不断更新，直到 npm@6 版本时，原本的问题已经全部解决，和 yarn 也已经没有多少差距了
-
-**基本使用**
-
-安装 yarn
-
-```bash
-npm i yarn -g
-```
-
-初始化项目
-
-```bash
-yarn init
-```
-
-根据项目的 package.json 文件还原依赖项
-
-```bash
-yarn install
-```
-
-安装包
-
-```bash
-yarn add 包名
-yarn add 包名 -D
-```
-
-卸载包
-
-```bash
-yarn remove 包名
-```
-
-更新包
-
-```bash
-yarn update 包名
-```
-
-运行脚本
-
-```bash
-yarn run 脚本名称
-```
+- 速度快: Yarn 通过并行安装和缓存优化显著提高了安装速度。
+- 离线模式: 如果之前已经下载过依赖，Yarn 可以从本地缓存中安装它们，无需联网。
+- 友好的错误信息。
 
 ### pnpm
 
-[pnpm](https://pnpm.io/zh) 是一款高性能包管理器，与 npm/yarn 采用了不同的依赖项管理方法。
+[pnpm](https://pnpm.io/zh) 旨在提高安装速度并减少磁盘空间的使用。pnpm 代表 "performant npm"，它采用了一种独特的依赖安装方式，称为“硬链接”（hard links）和“符号链接”（symbolic links），这种方式与 npm 和 yarn 的扁平化节点模块结构不同。
 
 pnpm 的特点：
 
-- 共享依赖：多个项目的依赖项通过硬链接的方式指向单个位置，从而减少了磁盘空间的占用。
-- 树状结构：解决幽灵依赖的问题（指未手动安装即可使用的包）且依赖关系清晰。
-- 快速安装：只会安装项目中添加或更新的依赖项，而不会重新安装所有依赖项。
+- 节省磁盘空间：通过使用全局存储区来保存所有的依赖项，并通过符号链接指向这些依赖项，pnpm 能够大幅减少项目实际占用的磁盘空间。
+- 快速安装：由于大多数依赖项已经被下载到了全局存储区中，后续的安装过程只需创建链接即可，这大大加快了安装速度。
+- 严格的依赖隔离：pnpm 遵循严格的依赖层级结构，这意味着一个包只能访问它自己声明的依赖，从而避免了扁平结构可能引起的冲突。
+- 安全性：pnpm 通过使用 SHA-1 哈希校验来确保每次安装的依赖项都是预期的那个版本，增强了安全性。
 
-**基本使用**
-
-安装 pnpm
-
-```bash
-npm i pnpm -g
-```
-
-初始化项目
-
-```bash
-pnpm init
-```
-
-根据项目的 package.json 文件还原依赖项
-
-```bash
-pnpm install
-```
-
-安装包
-
-```bash
-pnpm add 包名
-pnpm add 包名 -D
-```
-
-卸载包
-
-```bash
-pnpm remove 包名
-```
-
-更新包
-
-```bash
-pnpm update 包名
-```
-
-运行脚本
-
-```bash
-pnpm run 脚本名称
-```
-
-### cnpm
-
-[cnpm](https://npmmirror.com/package/cnpm) 是一个淘宝团队维护包管理工具，旨在提高在中国大陆地区 npm 包管理器的下载速度，以避免访问国际 npm 镜像时的网络速度问题。
-
-**基本使用**
-
-安装
-
-```bash
-npm i cnpm -g
-```
-
-初始化项目
-
-```bash
-cnpm init
-```
-
-还原依赖
-
-```bash
-cnpm i
-```
-
-安装包
-
-```bash
-cnpm i 包名
-cnpm i 包名 -D
-```
-
-卸载包
-
-```bash
-cnpm uninstall 包名
-```
-
-更新包
-
-```bash
-cnpm update 包名
-```
-
-运行脚本
-
-```bash
-cnpm run 脚本名称
-```
+随着越来越多人采用，pnpm 的社区正在快速增长，提供了丰富的文档和支持。

@@ -2,89 +2,78 @@
 
 Node.js 内置了许多核心模块，这些模块提供了各种功能
 
+推荐使用 ESM 模块化进行开发
+
+```json
+// package.json
+{
+  "type": "module"
+}
+```
+
 ## fs 文件系统
 
 `fs` 模块用于对文件系统进行操作。它提供了各种方法，可以用于读取、写入、修改、删除文件，操作目录，以及执行其他与文件系统相关的操作。
 
-> fs 模块中提供了许多结尾为 Sync 的方法，这些一般是同步方法，使用同步方法会造成 js 运行阻塞，大大影响 js 的运行效率，所以，一般我们都使用异步的方法
+旧版本 node 中的 fs 模块处理文件时，都是以同步的方式进行，极大影响效率。后来添加了 `fs/promises` 模块，将所有 api 都以 promise 格式处理。推荐使用这种方式。
 
 ### 读取文件
 
-这里仅使用异步方法读取文件：`fs.promises.readFile()`，诸如回调形式 `fs.readFile()` 或同步方式 `fs.readFileSync()` 不做描述
+`readFile(path[, options])`：读取文件内容。
 
-`fs.promises.readFile(path, options)`：返回一个 Promise，异步地读取文件内容。
+- `path`：文件路径
+- `options`：
+  - `encoding`：编码方式。
+  - `flag`：标识，node 会根据该值特殊处理，[查看详情](https://nodejs.org/docs/v22.11.0/api/fs.html#file-system-flags)。
+  - `signal`：传入 [`AbortController`](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) 实例的 `signal` 属性，可以中止本次 `readFile`。
+
+> 当 `options` 为字符串时，代表 `encoding`
 
 ```js
-const fs = require('fs')
-const path = require('path')
+import { readFile } from 'node:fs/promises'
 
-const filepath = path.resolve(__dirname, 'test.txt')
+const filepath = new URL('./package.json', import.meta.url)
 
-fs.promises
-  .readFile(filepath, 'utf-8')
-  .then((data) => {
-    console.log(data)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+const content = await readFile(filepath, 'utf-8')
 ```
 
 ### 新建文件
 
-`fs.promises.writeFile(file, data, options)`：返回一个 Promise，异步地写入文件内容。
+`writeFile(path, data[, options])`：写入文件内容。
 
 异步地将数据写入文件，如果文件已经存在，则替换该文件
 
 ```js
-const fs = require('fs')
-const path = require('path')
+import { writeFile } from 'node:fs/promises'
 
-const filepath = path.resolve(__dirname, 'test.txt')
+const filepath = new URL('./1.txt', import.meta.url)
 
-fs.promises
-  .writeFile(filepath, '今天天气不错', 'utf-8')
-  .then((data) => {
-    console.log(data)
-  })
-  .catch((err) => {
-    console.log(data)
-  })
+await writeFile(filepath, '今天天气不错', 'utf-8')
 ```
 
 ### 追加文件内容
 
-`fs.promises.appendFile(file, data, options)`：返回一个 Promise，异步地向文件末尾追加文件内容
+`appendFile(file, data[, options])`：向文件末尾追加文件内容，文件不存在将创建该文件。
 
 ```js
-const fs = require('fs')
-const path = require('path')
+import { appendFile } from 'node:fs/promises'
 
-const filepath = path.resolve(__dirname, 'test.txt')
+const filepath = new URL('./1.txt', import.meta.url)
 
-fs.promises
-  .appendFile(filepath, '\n追加的内容', 'utf-8')
-  .then((data) => {
-    console.log(data)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+await appendFile(filepath, '\n追加的内容', 'utf-8')
 ```
 
 ### 获取文件/目录信息
 
-`fs.promises.stat(path)`：返回一个 Promise，异步地获取文件或目录的状态信息。
+`stat(path)`：获取文件或目录的状态信息。
 
 ```js
-const fs = require('fs')
-const path = require('path')
+import { stat } from 'node:fs/promises'
 
-const filepath = path.resolve(__dirname, 'package.json')
+const filepath = new URL('./package.json', import.meta.url)
 
-fs.promises.stat(filepath).then(stat => {
-  console.log(stat.size) // 文件大小（字节）
-})
+const stat = await stat(filepath)
+console.log(stat.size) // 文件大小（字节）
 ```
 
 返回一个 `fs.Stats` 对象，该对象包含了关于文件或目录的各种属性和元数据。以下是 `fs.Stats` 对象的一些常用属性和它们的含义：
@@ -102,15 +91,15 @@ fs.promises.stat(filepath).then(stat => {
 
 在之前的 node 版本中，提供了`fs.exists(path, callback)`判断指定路径的文件或目录是否存在
 
-在较新的 node 版本中，该 api 已被废弃，未来可能会删除此 api，可以使用 `fs.promises.stat()` 来代替，如：
+在较新的 node 版本中，该 api 已被废弃，未来可能会删除此 api，可以使用 `stat` 来代替，如：
 
 ```js
-const fs = require('fs')
+import { stat } from 'node:fs/promises'
 
 /** 辅助函数，判断文件是否存在 */
 async function exists(path) {
   try {
-    return await fs.promises.stat(path)
+    return await stat(path)
   } catch (error) {
     return null
   }
@@ -123,72 +112,79 @@ async function exists(path) {
 
 ### 拼接路径
 
-使用 `path.join([...paths])` 将各个路径片段连接起来，形成一个标准的文件路径。它会自动处理不同操作系统下的路径分隔符。
+使用 `join([...paths])` 将各个路径片段连接起来，形成一个标准的文件路径。它会自动处理不同操作系统下的路径分隔符。
 
 ```js
-const path = require('path')
+import { join } from 'node:path'
 
-const res = path.join('code', 'project', 'src')
+const res = join('code', 'project', 'src')
 console.log(res) // code\project\src
 ```
 
 ### 解析路径
 
-使用 `path.resolve([...paths])` 解析各个路径片段，形成一个绝对路径。自动处理相对路径和特殊符号（`..`、`.`）。通常和 `__dirname` 配合使用
+使用 `resolve([...paths])` 解析各个路径片段，形成一个绝对路径。自动处理相对路径和特殊符号，如 `../`、`./` 等。通常和 `__dirname` 配合使用
 
 ```js
-const path = require('path')
+import { resolve } from 'node:path'
 
-console.log(__dirname) // D:\\code\project\src
-const res = path.resolve(__dirname, '../', 'index.js')
-console.log(res) // D:\\code\project\index.js
+const path = resolve(__dirname, 'index.js')
+console.log(path) // 返回 index.js 所在的绝对路径
+```
+
+由于 `__dirname` 在 ESM 下不可用，可使用以下方法达到相同效果：
+
+```js
+import { fileURLToPath } from 'node:url'
+
+const path = fileURLToPath(import.meta.url)
+console.log(path) // 返回 index.js 所在的绝对路径
 ```
 
 ### 获取文件所在目录
 
-使用 `path.dirname(p)` 获取文件所在目录，返回路径字符串 `p` 的目录名部分。
+使用 `dirname(p)` 获取文件所在目录，返回路径字符串 `p` 的目录名部分。
 
 ```js
-const path = require('path')
+import { dirname } from 'node:path'
 
 const p = 'D:\\code\\index.js'
-console.log(path.dirname(p)) // D:\code
-
+console.log(dirname(p)) // D:\code
 ```
 
 ### 获取文件名
 
-使用 `path.basename(p, [ext])` 获取文件名，返回路径字符串 `p` 的文件名部分，可以指定扩展名 `ext` 进行过滤。
+使用 `basename(p, [ext])` 获取文件名，返回路径字符串 `p` 的文件名部分，可以指定扩展名 `ext` 进行过滤。
 
 ```js
-const path = require('path')
+import { basename } from 'node:path'
 
 const p = 'D:\\code\\index.js'
-const res = path.basename(p, '.js')
+const res = basename(p, '.js')
 console.log(res) // index.js
 ```
 
 ### 获取文件后缀名
 
-使用 `path.extname(p)` 获取路径字符串 `p` 的文件扩展名部分，包括 `.`
+使用 `extname(p)` 获取路径字符串 `p` 的文件扩展名部分，包括 `.`
 
 ```js
-const path = require('path')
+import { extname } from 'node:path'
 
 const p = 'D:\\code\\index.js'
-const res = path.extname(p, '.js')
+const res = extname(p, '.js')
 console.log(res) // .js
 ```
 
 ### 获取路径信息
 
-使用 `path.parse(p)` 解析路径字符串，返回一个对象，包含文件路径的各个部分（目录、文件名、扩展名等），无论这个路径是否存在。
+使用 `parse(p)` 解析路径字符串，返回一个对象，包含文件路径的各个部分（目录、文件名、扩展名等），无论这个路径是否存在。
 
 ```js
-const path = require('path')
-const filepath = path.resolve('D://code/project/index.js')
+import { resolve, parse } from 'node:path'
+const filepath = resolve('D://code/project/index.js')
 
-console.log(path.parse(filepath))
+console.log(parse(filepath))
 // {
 //   root: 'D:\\',
 //   dir: 'D:\\code\\project',
@@ -200,13 +196,13 @@ console.log(path.parse(filepath))
 
 ### 标准化分隔符
 
-使用 `path.normalize(p)` 标准化路径字符串，将其转换为标准的格式，自动处理路径分隔符和特殊符号。返回处理后的路径
+使用 `normalize(p)` 标准化路径字符串，将其转换为标准的格式，自动处理路径分隔符和特殊符号。返回处理后的路径
 
 ```js
-const path = require('path')
-const p = path.resolve('D://code/project\\index.js')
+import { resolve, normalize } from 'node:path'
+const p = resolve('D://code/project\\index.js')
 
-console.log(path.normalize(p)) // D:\code\project\index.js
+console.log(normalize(p)) // D:\code\project\index.js
 ```
 
 ## url 网址
@@ -240,4 +236,115 @@ console.log(result)
 console.log(result.searchParams.get('key')) // 'value'
 ```
 
-Node.js 的核心模块提供了丰富的功能，涵盖了许多常见的编程任务。可以在 Node.js 的官方文档中找到更详细的信息和用法示例
+## EventEmitter
+
+EventEmitter 是 node:events 模块中的一个类，用于处理事件驱动编程。通过 EventEmitter，你可以创建能够监听和触发事件的对象。
+
+### 创建 EventEmitter 实例
+
+```js
+import { EventEmitter } from 'node:events'
+
+const emitter = new EventEmitter()
+```
+
+### 绑定事件
+
+使用 `on` 或 `addListener` 绑定监听器。
+
+```js
+emitter.on('event-name', () => {
+  console.log('事件被触发了！')
+})
+
+emitter.addListener('event-name', () => {
+  console.log('事件被触发了！')
+})
+```
+
+使用 `once` 绑定监听器，监听器只会被执行一次，在首次触发后自动移除。
+
+```js
+emitter.once('event-name', () => {
+  console.log('触发一次后自动移除')
+})
+```
+
+### 触发事件
+
+使用 emit 方法来触发一个事件。
+
+```js
+emitter.emit('event-name')
+```
+
+可以传递参数给监听器。
+
+```js
+emitter.on('event-name', msg => {
+  console.log(msg) // emit 执行后，打印 ‘你好’
+})
+
+emitter.emit('event-name', '你好')
+```
+
+### 移除监听器
+
+如果不再需要某个监听器，可以使用 `off` 或 `removeListener` 移除它。
+
+```js
+const listener = () => console.log('我是监听器')
+
+emitter.on('event-name', listener)
+emitter.off('event-name', listener) // 移除
+
+emitter.removeAllListeners() // 移除所有监听器
+emitter.removeAllListeners('event-name') // 移除所有 event-name 绑定的监听器
+```
+
+### 最大监听器数量限制
+
+默认情况下，`EventEmitter` 对象对每个事件的最大监听器数量是 10。如果超过这个数量，`EventEmitter` 会发出警告。可以通过 `setMaxListeners` 方法来调整。
+
+```js
+emitter.setMaxListeners(20)
+```
+
+### 获取事件监听器绑定的数量
+
+使用 `listenerCount` 方法来获取指定事件的监听器数量。
+
+```js{6}
+const listener = () => console.log('你好')
+
+emitter.on('event-name', listener)
+emitter.on('event-name', listener)
+
+console.log(emitter.listenerCount()) // 2
+```
+
+### 获取所有事件名
+
+使用 `eventNames` 方法获取所有的事件名称。
+
+```js
+emitter.on('foo', () => {})
+emitter.on('bar', () => {})
+emitter.on('baz', () => {})
+
+console.log(emitter.eventNames()) // ['foo', 'bar', 'baz']
+```
+
+### 获取指定事件的所有监听器
+
+使用 `listeners` 方法来获取指定事件的所有监听器。
+
+```js
+const listener1 = () => console.log('Listener 1')
+const listener2 = () => console.log('Listener 2')
+
+emitter.on('event', listener1)
+emitter.on('event', listener2)
+
+console.log(emitter.listeners('event')) // [ [Function: listener1], [Function: listener2] ]
+```

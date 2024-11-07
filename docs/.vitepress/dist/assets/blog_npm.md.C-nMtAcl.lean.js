@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DwILdc5J.js";const F=JSON.parse('{"title":"npm 包管理器","description":"","frontmatter":{},"headers":[],"relativePath":"blog/npm.md","filePath":"blog/npm.md"}'),p={name:"blog/npm.md"},t=n("",67),h=[t];function e(l,k,r,d,o,g){return a(),i("div",null,h)}const y=s(p,[["render",e]]);export{F as __pageData,y as default};
