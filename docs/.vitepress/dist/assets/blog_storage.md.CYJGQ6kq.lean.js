@@ -1,1 +1,0 @@
-import{_ as a,c as e,o,a4 as t}from"./chunks/framework.DwILdc5J.js";const m=JSON.parse('{"title":"存储","description":"","frontmatter":{},"headers":[],"relativePath":"blog/storage.md","filePath":"blog/storage.md"}'),r={name:"blog/storage.md"},l=t("",5),i=[l];function s(n,c,d,h,_,b){return o(),e("div",null,i)}const f=a(r,[["render",s]]);export{m as __pageData,f as default};

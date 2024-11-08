@@ -16,7 +16,7 @@ export default {
     head: [['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]],
     // 导航栏配置
     nav: [
-      { text: '博客', link: '/blog/dom' },
+      { text: '博客', link: '/blog/browser/dom' },
       { text: '其它', link: '/other/app' },
     ],
     // 左侧边栏配置

@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 进入博客
-      link: /blog/dom
+      link: /blog/browser/dom
 
 features:
   - icon:
@@ -19,8 +19,9 @@ features:
       width: 30
     title: 基于 VitePress 搭建
     details: 本网站使用 VitePress 搭建，VitePress 是使用 Vite 和 Vue 制作的静态网站生成器
-    link: https://vitepress.qzxdp.cn
+    link: https://vitepress.dev/zh/
     linkText: VitePress
+
   - icon:
       light: /assets/markdown.svg
       dark: /assets/markdown-dark.svg
@@ -29,6 +30,7 @@ features:
     details: 只需专注于 Markdown 内容就可以轻松创作出漂亮的文档。
     link: https://www.markdown.xyz
     linkText: Markdown
+
   - icon:
       src: /assets/github.svg
       width: 30

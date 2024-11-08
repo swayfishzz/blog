@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DwILdc5J.js";const c=JSON.parse('{"title":"CDN","description":"","frontmatter":{},"headers":[],"relativePath":"blog/cdn.md","filePath":"blog/cdn.md"}'),t={name:"blog/cdn.md"},l=n("",22),h=[l];function p(k,e,E,r,d,g){return a(),i("div",null,h)}const o=s(t,[["render",p]]);export{c as __pageData,o as default};
