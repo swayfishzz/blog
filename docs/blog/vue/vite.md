@@ -132,17 +132,17 @@ export default ({ mode }) => {
 
 在项目根目录中的 `vite.config.js` 中添加配置
 
-```js
+```js {3,10}
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path' // 导入node路径模块
+import { fileURLToPath } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // 配置路径别名
+      '@': fileURLToPath(new URL('./src', import.meta.url)), // 配置路径别名
     },
   },
 })
@@ -242,7 +242,7 @@ export default {
 
 配置不打包的模块对应的全局变量名称。
 
-该插件经常在需要使用 CDN 代替某些第三方库时使用，见 [网络/CDN](/blog/cdn)
+该插件经常在需要使用 CDN 代替某些第三方库时使用，见 [网络/CDN](/blog/network/cdn)
 
 ```bash
 npm i rollup-plugin-external-globals -D

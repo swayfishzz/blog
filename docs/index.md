@@ -28,7 +28,7 @@ features:
       width: 30
     title: 专注于内容
     details: 只需专注于 Markdown 内容就可以轻松创作出漂亮的文档。
-    link: https://www.markdown.xyz
+    link: https://markdown.com.cn/
     linkText: Markdown
 
   - icon:
