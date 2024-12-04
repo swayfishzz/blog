@@ -38,16 +38,16 @@ const myPromise = new Promise((resolve, reject) => {
 })
 
 // 处理 Promise 的状态
-myPromise.then(function (data) {
-  // 在异步操作成功时执行，获取到成功的结果
-  console.log('成功：' + data)
-}).catch(function (reason) {
-  // 在异步操作失败时执行，获取到失败的原因
-  console.error('失败：' + reason)
-})
+myPromise
+  .then(function (data) {
+    // 在异步操作成功时执行，获取到成功的结果
+    console.log('成功：' + data)
+  })
+  .catch(function (reason) {
+    // 在异步操作失败时执行，获取到失败的原因
+    console.error('失败：' + reason)
+  })
 ```
-
-在这个示例中，我们创建了一个 Promise 对象，它模拟了一个异步操作（这里使用了 `setTimeout` 来模拟延迟）。当异步操作成功时，我们调用 `resolve`，传递成功的数据；当异步操作失败时，我们调用 `reject`，传递失败的原因。然后，我们使用 `.then()` 方法来处理成功的情况，使用 `.catch()` 方法来处理失败的情况
 
 Promise 还支持链式调用，每个 `.then()` 又返回一个新的 Promise 对象，这个对象可被用于链式调用，例如：
 
@@ -70,7 +70,7 @@ Promise 构造函数具有一些静态方法，通常用于处理多个 Promise 
 
 ```js
 const foo = Promse.resolve(100)
-foo.then((res) => {
+foo.then(res => {
   console.log(res) // 100
 })
 ```
@@ -83,7 +83,7 @@ foo.then((res) => {
 
 ```js
 const bar = Promise.reject('出错了！')
-bar.catch((err) => {
+bar.catch(err => {
   console.log(err) // "出错了！"
 })
 ```
@@ -100,7 +100,7 @@ bar.catch((err) => {
 const p1 = Promise.resolve('p1的值')
 const p2 = Promise.resolve('p2的值')
 
-Promise.all([p1, p2]).then((res) => {
+Promise.all([p1, p2]).then(res => {
   console.log(res) // ['p1的值', 'p2的值']
 })
 ```
@@ -113,7 +113,7 @@ Promise.all([p1, p2]).then((res) => {
 const p1 = Promise.resolve('p1的值')
 const p2 = Promise.reject('p2的值')
 
-Promise.allSettled([p1, p2]).then((res) => {
+Promise.allSettled([p1, p2]).then(res => {
   console.log(res)
 })
 // [
@@ -181,7 +181,7 @@ async function example() {
 也可以使用 `unhandledrejection` 事件监听错误，这个事件会在 Promise 被拒绝且没有被处理时触发。
 
 ```js
-window.addEventListener('unhandledrejection', (event) => {
+window.addEventListener('unhandledrejection', event => {
   console.error('Promise:', event.promise)
   console.error('Reason:', event.reason)
   // 在这里可以添加其他错误处理逻辑，比如日志记录或通知
@@ -200,7 +200,7 @@ window.addEventListener('unhandledrejection', (event) => {
 function fetchData(url, callback) {
   // 模拟异步操作，例如发起网络请求
   setTimeout(() => {
-    const data = { msg: 'hello '}
+    const data = { msg: 'hello ' }
     callback(data)
   }, 1000)
 }

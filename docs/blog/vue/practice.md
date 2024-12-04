@@ -140,7 +140,7 @@ instance.interceptors.response.use(
   },
 )
 
-return instance
+export default instance
 ```
 
 ## SortableJS 排序

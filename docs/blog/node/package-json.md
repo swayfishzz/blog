@@ -95,6 +95,7 @@ npm start
 - `version`: 项目的版本号，通常采用 [语义化版本规范 (Semantic Versioning)](https://semver.org/)。
 - `description`: 项目的简短描述，用于解释项目的主要目标或内容。
 - `main`: 项目的入口点文件，通常是一个 JavaScript 文件。
+- `peerDependencies`: 声明使用此依赖时，你应该安装的额外的依赖信息，例如：element-plus 的 peerDependencies 应包含 vue。
 - `author`: 项目的作者或维护者的名称。
 - `license`: 项目的许可证，指明了使用项目的规则和限制。
 - `repository`: 项目的源代码托管库的 URL。

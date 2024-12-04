@@ -4,10 +4,10 @@
 
 ## 安装
 
-安装 unocss 和官方预设方案
+安装 unocss
 
 ```bash
-pnpm add unocss @unocss/preset-uno -D
+pnpm add unocss -D
 ```
 
 在 vite.config.js 中配置：
@@ -24,8 +24,7 @@ export default defineConfig({
 项目根目录中创建 `uno.config.js` 文件
 
 ```js
-import { defineConfig } from 'unocss'
-import presetUno from '@unocss/preset-uno'
+import { defineConfig, presetUno } from 'unocss'
 
 export default defineConfig({
   presets: [presetUno()],
@@ -47,7 +46,7 @@ import 'virtual:uno.css'
 - 自定义规则：添加自定义的原子化样式。
 - 指令转换器：在 css 代码中使用原子化样式。
 
-```js [uno.config.js]
+```js
 import presetUno from '@unocss/preset-uno'
 import { defineConfig, transformerDirectives } from 'unocss'
 

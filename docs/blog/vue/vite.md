@@ -110,7 +110,7 @@ export default ({ mode }) => {
 
   return {
     server: {
-      port: 8080, // 指定开发服务器的端口号，默认为 3000
+      port: 8080, // 指定开发服务器的端口号，默认为 5173
       open: false, // 是否在启动时自动打开浏览器
       proxy: {
         // 配置跨域代理

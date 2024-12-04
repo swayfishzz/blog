@@ -104,9 +104,13 @@ fetch('/api', { signal: controller.signal })
 controller.abort()
 ```
 
+取消请求并不一定成功，若是该请求还没有到达服务器，此时将完全阻止请求被发送；
+
+一旦请求到达服务器并开始处理，此时中止的操作对于服务器来说是不知道的，既客户端尽管取消了请求，服务器会照常处理该请求，这会导致像新增、修改、删除一类的请求，服务器依然会完成它的工作。并且因为客户端取消请求的操作，浏览器不会把处理结果返回，这可能导致一些预料之外的情况。
+
 ## XMLHttpRequest
 
-[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 是最早用于实现 Ajax 的技术之一。现在已经不推荐使用它来实现 ajax 交互，因为它的操作过程较为繁琐，推荐使用 Fetch。
+[XMLHttpRequest](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 是最早用于实现 Ajax 的技术。现在已经不推荐使用它来实现 ajax 交互，因为它的操作过程较为繁琐。
 
 ```js
 // 创建 XMLHttpRequest 对象

@@ -19,10 +19,9 @@ export default [
       { text: '模块化', link: '/blog/js/module' },
       // { text: '位运算符', link: '/blog/js/bitwise' },
       { text: '异步编程', link: '/blog/js/async' },
-      { text: '工具函数', link: '/blog/js/utils' },
-      { text: '常用库', link: '/blog/js/packages' },
       { text: '正则表达式', link: '/blog/js/RegExp' },
       { text: '设计模式', link: '/blog/js/design-pattern' },
+      { text: 'EventBus', link: '/blog/js/event-bus' },
     ],
   },
   {
@@ -50,6 +49,7 @@ export default [
       { text: '状态管理 Pinia', link: '/blog/vue/pinia' },
       { text: '路由管理 VueRouter', link: '/blog/vue/router' },
       { text: 'CSS 功能', link: '/blog/vue/css' },
+      { text: 'h 函数', link: '/blog/vue/h' },
       { text: '实践场景', link: '/blog/vue/practice' },
     ],
   },
@@ -59,6 +59,7 @@ export default [
     items: [
       { text: '使用 nvm 管理 node', link: '/blog/node/nvm' },
       { text: 'npm 包管理器', link: '/blog/node/npm' },
+      // { text: '包管理器的差异', link: '/blog/node/pkg-manager-diff' },
       { text: 'package.json', link: '/blog/node/package-json' },
       { text: '全局变量', link: '/blog/node/globals' },
       { text: '常用内置模块', link: '/blog/node/api' },
@@ -74,6 +75,8 @@ export default [
     items: [
       { text: 'Iconify', link: '/blog/util/iconify' },
       { text: 'UnoCSS', link: '/blog/util/unocss' },
+      { text: 'Git Commit', link: '/blog/util/git-commit' },
+      { text: 'JS 工具函数', link: '/blog/util/js-util' },
     ],
   },
 ]

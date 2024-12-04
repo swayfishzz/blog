@@ -233,7 +233,9 @@ Node.js 环境中，`import.meta.url`返回的总是本地路径，即`file:URL`
 需要将 `<script>` 标签添加 `type="module"` 属性
 
 ```html
-<script src="./foo.js" type="module"></script>
+<script type="module">
+import foo from './foo.js'
+</script>
 ```
 
 对于带有`type="module"`的`<script>`，都是异步加载，不会造成堵塞浏览器，即等到整个页面渲染完，再执行模块脚本，等同于打开了`<script>`标签的`defer`属性。

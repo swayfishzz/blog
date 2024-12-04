@@ -91,4 +91,17 @@ const theme = reactive({ bg: '#333' }) // 定义主题
 </script>
 ```
 
-使用 `v-bind()` 绑定 JS 表达式时，需要使用引号包裹
+使用 `v-bind()` 绑定 JS 表达式时，需要使用引号包裹：
+
+```vue
+<script setup>
+const width = 100
+</script>
+
+<style scoped>
+.box {
+  width: v-bind('width + "px"');
+  height: v-bind('(width / 2) + "px"');
+}
+</style>
+```
