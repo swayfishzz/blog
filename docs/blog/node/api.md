@@ -82,9 +82,9 @@ console.log(stat.size) // 文件大小（字节）
 - `stats.isDirectory()`：返回一个布尔值，表示当前路径是否指向一个目录
 - `stats.isSymbolicLink()`：返回一个布尔值，表示当前路径是否指向一个符号链接（软链接）
 - `stats.size`：文件的大小，以字节为单位
-- `stats.atime`：文件的访问时间（access time），表示文件最后一次被访问的时间戳
-- `stats.mtime`：文件的修改时间（modification time），表示文件最后一次被修改的时间戳
-- `stats.ctime`：文件的变更时间（change time），表示文件元数据（例如权限或所有者）最后一次发生变更的时间戳
+- `stats.atime`：文件的访问时间（access time），表示文件最后一次被访问的时间
+- `stats.mtime`：文件的修改时间（modification time），表示文件最后一次被修改的时间
+- `stats.ctime`：文件的变更时间（change time），表示文件元数据（例如权限或所有者）最后一次发生变更的时间
 - `stats.birthtime`（仅在部分系统上可用）：文件的创建时间（birth time），表示文件创建的时间戳
 
 ### 检查文件/目录是否存在

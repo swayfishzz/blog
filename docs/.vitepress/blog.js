@@ -20,7 +20,7 @@ export default [
       // { text: '位运算符', link: '/blog/js/bitwise' },
       { text: '异步编程', link: '/blog/js/async' },
       { text: '正则表达式', link: '/blog/js/RegExp' },
-      { text: '设计模式', link: '/blog/js/design-pattern' },
+      // { text: '设计模式', link: '/blog/js/design-pattern' },
       { text: 'EventBus', link: '/blog/js/event-bus' },
     ],
   },
@@ -29,6 +29,7 @@ export default [
     collapsed: false,
     items: [
       { text: 'HTTP', link: '/blog/network/http' },
+      { text: '缓存', link: '/blog/network/cache' },
       // { text: 'HTTPS', link: '/blog/network/https' },
       { text: 'AJAX', link: '/blog/network/ajax' },
       { text: 'CORS', link: '/blog/network/cors' },
@@ -36,6 +37,7 @@ export default [
       // { text: 'Cookie & Session', link: '/blog/network/cookie-session' },
       // { text: '网络安全', link: '/blog/network/security' },
       // { text: '性能优化', link: '/blog/network/performance-optimization' },
+      { text: 'SSE', link: '/blog/network/sse' }
       // { text: 'WebSocket', link: '/blog/network/websocket' }
     ],
   },
